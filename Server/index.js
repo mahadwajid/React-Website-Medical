@@ -18,4 +18,3 @@ app.listen(5000);
 app.use(cors());
 app.use(bodyParser.json({ extended: true}));
 app.use(bodyParser.urlencoded ({extended:true}));
-origin 

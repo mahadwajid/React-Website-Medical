@@ -2,6 +2,7 @@ import '../Assessts/Blog.css';
 import Breadcrumb from './Breadcrumb';
 import Table from 'react-bootstrap/Table';
 import img1 from '../Images/Banner9.png';
+import Footer from './Footer';
 
 function Blog(){
 
@@ -56,7 +57,7 @@ function Blog(){
 
             </div>
 
-
+        <Footer />
         </div>
     )
 }

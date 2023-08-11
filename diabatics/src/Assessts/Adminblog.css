@@ -1,0 +1,38 @@
+/* Add this CSS to your existing styles or a separate CSS file */
+
+/* Adjust the container padding for better spacing */
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  /* Center the form on larger screens */
+  .col-md-12 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Style the form inputs for better spacing and responsiveness */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Make the image input and text input responsive */
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Adjust the width of the image input */
+  .input-group .btn-file {
+    width: 100%;
+  }
+  
+  /* Make the editor responsive */
+  .ql-editor {
+    min-height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  

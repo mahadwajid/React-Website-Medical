@@ -7,6 +7,7 @@ import img1 from '../Images/Banner8.png';
 import img8 from './../Images/Logo2.png';
 import img9 from './../Images/Logo3.png';
 import img10 from './../Images/Logo4.png';
+import Footer from "./Footer";
 
 function Services(){
     const breadcrumbItems = [
@@ -77,6 +78,7 @@ function Services(){
   </Row>
 </div>
 
+        <Footer />
         </div>
 
         

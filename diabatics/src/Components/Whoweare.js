@@ -3,6 +3,7 @@ import '../Assessts/Whoweare.css';
 import Breadcrumb from "./Breadcrumb";
 import img1 from '../Images/Banner6.png';
 import img2 from '../Images/Banner7.png';
+import Footer from "./Footer";
 
 function Whoweare() {
     const breadcrumbItems = [
@@ -38,6 +39,7 @@ function Whoweare() {
   </div>
 </div>
 
+<Footer />
         </div>
     )
 }

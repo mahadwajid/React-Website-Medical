@@ -35,11 +35,18 @@ function Navigation(){
               <Nav.Link className="navbarLink" href="Blog"  to="/Blog" >Blogs</Nav.Link>
               <Nav.Link className="navbarLink" href="#link">Faqs</Nav.Link>
               <Nav.Link className="navbarLink" href="Contactus" to="/Contactus">Contact us</Nav.Link>
+
+              <Link to="/Admin">
+              <button>SwitchAdmin</button>
+              </Link>
+
+
               </ul>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+    
       </div>
     )
 }

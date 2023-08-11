@@ -15,6 +15,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import CardGroup from 'react-bootstrap/CardGroup';
+import Footer from "./Footer";
 
 function Home() {
   const carouselRef = useRef(null);
@@ -175,7 +176,8 @@ function Home() {
 
 
 
-
+    <br />
+    <Footer />
     </div>
   );
 }
