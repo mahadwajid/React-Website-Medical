@@ -1,0 +1,22 @@
+.Blog-first-div {
+    position: relative; 
+    width: 100vw;
+    height: 30vh;
+    overflow: hidden; 
+  }
+  
+  .Blog-first-text-container {
+    position: absolute; /* Position the text container */
+    top: 0; /* Position at the top of the div */
+    left: 0; /* Position at the left of the div */
+    width: 100%; /* Occupy the full width of the div */
+    padding: 10px; /* Add padding for spacing */
+    color: white; /* Set text color to white */
+  }
+  
+  .Blog-first-div-image {
+    width: 100%; /* Ensure the image width fits the first div */
+    max-height: 100%; /* Ensure the image height fits the first div */
+    object-fit: cover; /* Maintain aspect ratio and cover the available space */
+    margin: 0; /* Remove any default margins */
+  }

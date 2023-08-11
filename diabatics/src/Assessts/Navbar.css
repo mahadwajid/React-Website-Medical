@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+  }
+
+
+.navbar-logo { 
+  width: 20%;
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  height: 8vh;
+  font-weight: bold;
+  background-color: transparent;
+  margin-left: -40px;
+ 
+
+}
+
+ul#Lin-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+#Lin-1{
+  position: relative;
+  left: 2rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.navbarLink {
+  margin: 10px;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-size: medium;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  --b: 0.1em;
+  --c: #1095c1;
+  color: #0000;
+  padding-block: var(--b);
+  background:
+    linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%))/100% 200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p, 0%)/var(--_p, 0%) var(--b) no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: .3s var(--_s, 0s) linear, background-size .3s calc(.3s - var(--_s, 0s));
+}
+
+.navbarLink:hover {
+  --_p: 100%;
+  --_s: .3s;
+}
