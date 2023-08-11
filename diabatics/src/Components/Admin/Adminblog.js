@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-quill/dist/quill.snow.css';
-// import '../../Assessts/Adminblog.css';
+import '../../Assessts/Adminblog.css';
 import ReactQuill from 'react-quill';
+import { addBlog } from '../../Service/API';
 
 function Adminblog() {
   const [title, setTitle] = useState('');
   const [files, setFiles] = useState([]);
   const [content, setContent] = useState('');
-  const [dateTime, setDateTime] = useState(new Date());
+  const [publishDate, setPublishDate] = useState('');
+  const [publishTime, setPublishTime] = useState('');
 
   const handleFileSelect = (event) => {
     const selectedFiles = Array.from(event.target.files);
@@ -17,49 +19,54 @@ function Adminblog() {
     setFiles(fileNamesStr);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Form submitted:', title, files, content, dateTime);
+    const publishDateTime = new Date(`${publishDate} ${publishTime}`);
+
+    try {
+      const blogData = {
+        title,
+        files,
+        content,
+        publishDateTime,
+      };
+
+      await addBlog(blogData); // Use the addBlog function from API.js
+      console.log('Blog submitted successfully:', blogData);
+    } catch (error) {
+      console.error('Error submitting blog:', error);
+      // Handle the error (e.g., show an error message to the user)
+    }
   };
 
-  useEffect(() => {
-    // Update the current date and time every second
-    const intervalId = setInterval(() => {
-      setDateTime(new Date());
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
   return (
-    <div className="container">
-      <div className="row">
+    <div className="adminblog-container">
+      <div className="adminblog-form">
         <div className="col-md-12">
+          <h2 className="adminblog-heading">Add New Blog</h2>
           <form onSubmit={handleSubmit} role="form">
             <div className="form-group">
+              <label>Title:</label>
               <input
                 type="text"
                 className="form-control"
                 name="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Title"
+                placeholder="Enter blog title"
               />
             </div>
             <div className="form-group">
-              <label>Image</label>
+              <label>Image:</label>
               <div className="input-group">
-                <span className="input-group-btn">
-                  <span className="btn btn-primary btn-file">
-                    Browse <input type="file" name="bimgs" multiple onChange={handleFileSelect} />
-                  </span>
-                </span>
+                <label className="btn btn-primary btn-file">
+                  Browse <input type="file" name="bimgs" multiple onChange={handleFileSelect} />
+                </label>
                 <input type="text" className="form-control" readOnly value={files} />
               </div>
             </div>
             <div className="form-group">
+              <label>Content:</label>
               <ReactQuill
                 value={content}
                 onChange={setContent}
@@ -68,15 +75,27 @@ function Adminblog() {
               />
             </div>
             <div className="form-group">
+              <label>Publish Date:</label>
               <input
-                type="submit"
-                name="Submit"
-                value="Publish"
-                className="btn btn-primary form-control"
+                type="date"
+                className="form-control"
+                value={publishDate}
+                onChange={(e) => setPublishDate(e.target.value)}
               />
             </div>
             <div className="form-group">
-              <p>Current Date and Time: {dateTime.toLocaleString()}</p>
+              <label>Publish Time:</label>
+              <input
+                type="time"
+                className="form-control"
+                value={publishTime}
+                onChange={(e) => setPublishTime(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <button type="submit" className="btn btn-primary">
+                Publish Blog
+              </button>
             </div>
           </form>
         </div>

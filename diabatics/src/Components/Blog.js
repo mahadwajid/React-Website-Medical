@@ -3,13 +3,26 @@ import Breadcrumb from './Breadcrumb';
 import Table from 'react-bootstrap/Table';
 import img1 from '../Images/Banner9.png';
 import Footer from './Footer';
+import { useEffect, useState } from 'react';
+import { getBlogs } from '../Service/API';
 
 function Blog(){
+
+    const[blogdetails , setblogdetails]=useState([]);
 
     const breadcrumbItems = [
         { label: "Home", path: "/" },
         { label: "Blog", path: "/Blog", active: true },
       ];
+
+      useEffect(()=>{
+        getblogdetails();
+      },[]);
+
+      const getblogdetails= async()=>{
+        const result=await getBlogs();
+        setblogdetails(result.data);
+      }
 
     return(
      
@@ -28,29 +41,22 @@ function Blog(){
       <thead>
         <tr>
           <th>#</th>
-          <th>First Name</th>
+          <th>Name</th>
           <th>Last Name</th>
           <th>Username</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+
+      {blogdetails.map((details , index)=>(
+    <tr key={index}>
+        <td><img style={{width:"4rem", height:"5rem"}} src={`http://localhost:5000/${details.image}`} alt="" /></td>
+        <td>{details.title}</td>
+        <td>{details.files}</td> 
+        <td>{details.content}</td>  
+    </tr>
+))}
+        
       </tbody>
     </Table>
 
