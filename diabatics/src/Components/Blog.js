@@ -22,6 +22,7 @@ function Blog(){
       const getblogdetails= async()=>{
         const result=await getBlogs();
         setblogdetails(result.data);
+        console.log(result.data);
       }
 
     return(
@@ -46,18 +47,20 @@ function Blog(){
           <th>Username</th>
         </tr>
       </thead>
-      <tbody>
+      
 
       {blogdetails.map((details , index)=>(
+        <tbody>
     <tr key={index}>
         <td><img style={{width:"4rem", height:"5rem"}} src={`http://localhost:5000/${details.image}`} alt="" /></td>
         <td>{details.title}</td>
         <td>{details.files}</td> 
         <td>{details.content}</td>  
     </tr>
+    </tbody>
 ))}
         
-      </tbody>
+   
     </Table>
 
 

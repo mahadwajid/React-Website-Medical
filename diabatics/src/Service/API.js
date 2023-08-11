@@ -13,11 +13,5 @@ export const addBlog = async (blogData) => {
 };
 
 export const getBlogs = async () => {
-  try {
-    const response = await axios.get(`${url}/Blog`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching blogs:', error);
-    throw error;
-  }
+    return await axios.get(`${url}/Blog`)
 };
