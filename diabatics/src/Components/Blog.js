@@ -25,6 +25,11 @@ function Blog(){
         console.log(result.data);
       }
 
+      const formatDate = (dateTimeString) => {
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(dateTimeString).toLocaleDateString(undefined, options);
+      };
+
     return(
      
         <div>
@@ -41,10 +46,10 @@ function Blog(){
             <Table striped bordered hover>
       <thead>
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Date and Time</th>
         </tr>
       </thead>
       
@@ -54,8 +59,10 @@ function Blog(){
     <tr key={index}>
         <td><img style={{width:"4rem", height:"5rem"}} src={`http://localhost:5000/${details.image}`} alt="" /></td>
         <td>{details.title}</td>
-        <td>{details.files}</td> 
         <td>{details.content}</td>  
+        <td>{formatDate(details.publishDateTime)}</td>
+
+
     </tr>
     </tbody>
 ))}

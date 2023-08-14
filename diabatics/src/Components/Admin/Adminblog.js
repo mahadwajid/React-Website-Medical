@@ -2,101 +2,113 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-quill/dist/quill.snow.css';
 import '../../Assessts/Adminblog.css';
-import ReactQuill from 'react-quill';
 import { addBlog } from '../../Service/API';
 
 function Adminblog() {
-  const [title, setTitle] = useState('');
-  const [files, setFiles] = useState([]);
-  const [content, setContent] = useState('');
-  const [publishDate, setPublishDate] = useState('');
-  const [publishTime, setPublishTime] = useState('');
+  const [details, setDetails] = useState({
+    title: '',
+    content: '',
+    publishdate: '',
+    publishTime: '',
+    image: null,
+  });
 
-  const handleFileSelect = (event) => {
-    const selectedFiles = Array.from(event.target.files);
-    const fileNames = selectedFiles.map((file) => file.name);
-    const fileNamesStr = fileNames.join(', ');
-    setFiles(fileNamesStr);
+  const { title, content, publishdate, publishTime, image } = details;
+
+  const handleChange = (event) => {
+    setDetails({ ...details, [event.target.name]: event.target.value });
+  };
+
+  const handleImageChange = (event) => {
+    setDetails({ ...details, [event.target.name]: event.target.files[0] });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const publishDateTime = new Date(`${publishDate} ${publishTime}`);
-
     try {
-      const blogData = {
-        title,
-        files,
-        content,
-        publishDateTime,
-      };
+      const formdata = new FormData();
+      formdata.append('title', title);
+      formdata.append('content', content);
 
-      await addBlog(blogData); // Use the addBlog function from API.js
-      console.log('Blog submitted successfully:', blogData);
+      formdata.append('publishDate', publishdate);
+
+      formdata.append('image', image);
+
+      
+
+      await addBlog(formdata);
+      alert('Data is Saved');
     } catch (error) {
-      console.error('Error submitting blog:', error);
-      // Handle the error (e.g., show an error message to the user)
+      console.log('Error:', error);
     }
   };
+
+  
 
   return (
     <div className="adminblog-container">
       <div className="adminblog-form">
-        <div className="col-md-12">
-          <h2 className="adminblog-heading">Add New Blog</h2>
-          <form onSubmit={handleSubmit} role="form">
-            <div className="form-group">
-              <label>Title:</label>
+        <div className="col-md-6 mx-auto">
+          <h2 className="adminblog-heading text-center">Add New Blog</h2>
+          <form>
+            <div>
+              <label htmlFor="title">Title</label>
               <input
-                type="text"
-                className="form-control"
                 name="title"
+                type="text"
+                id="title"
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Enter blog title"
+                onChange={handleChange}
+                required
               />
             </div>
-            <div className="form-group">
-              <label>Image:</label>
-              <div className="input-group">
-                <label className="btn btn-primary btn-file">
-                  Browse <input type="file" name="bimgs" multiple onChange={handleFileSelect} />
-                </label>
-                <input type="text" className="form-control" readOnly value={files} />
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Content:</label>
-              <ReactQuill
+            <div>
+              <label htmlFor="content">Content</label>
+              <textarea
+                name="content"
+                id="content"
+                type="text"
                 value={content}
-                onChange={setContent}
-                theme="snow"
-                placeholder="Write something..."
-              />
+                onChange={handleChange}
+                required
+              ></textarea>
             </div>
-            <div className="form-group">
-              <label>Publish Date:</label>
+            <div>
+              <label htmlFor="publishdate">Publish Date</label>
               <input
+                name="publishdate"
                 type="date"
-                className="form-control"
-                value={publishDate}
-                onChange={(e) => setPublishDate(e.target.value)}
+                id="publishdate"
+                value={publishdate}
+                onChange={handleChange}
+                required
               />
             </div>
-            <div className="form-group">
-              <label>Publish Time:</label>
+            {/* <div>
+              <label htmlFor="publishTime">Publish Time</label>
               <input
+                name="publishTime"
                 type="time"
-                className="form-control"
+                id="publishTime"
                 value={publishTime}
-                onChange={(e) => setPublishTime(e.target.value)}
+                onChange={handleChange}
+                required
+              />
+            </div> */}
+            <div>
+              <label htmlFor="images">Images:</label>
+              <input
+                name="image"
+                type="file"
+                id="images"
+                onChange={handleImageChange}
+                multiple
+                required
               />
             </div>
-            <div className="form-group">
-              <button type="submit" className="btn btn-primary">
-                Publish Blog
-              </button>
-            </div>
+            <button className="btnadd" type="submit" onClick={handleSubmit}>
+              Submit
+            </button>
           </form>
         </div>
       </div>

@@ -1,15 +1,63 @@
-/* Adminblog.css (create this CSS file in the same folder as Adminblog.js) */
+/* Add this CSS to your Adminblog.css or equivalent */
 
-/* Center the form */
 .adminblog-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh; /* Adjust the height as needed */
+  background-color: #f8f9fa;
+  background-image: linear-gradient(to right, #DFE9F3, #FFFFFF);
+  padding: 50px 0;
 }
 
-/* Additional styling for the form */
 .adminblog-form {
+  background-color: #ffffff;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.adminblog-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.adminblog-form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.adminblog-form input[type="text"],
+.adminblog-form textarea,
+.adminblog-form input[type="date"],
+.adminblog-form input[type="file"] {
   width: 100%;
-  max-width: 600px; /* Limit the maximum width of the form */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.adminblog-form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.adminblog-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+  .adminblog-form {
+    max-width: 90%;
+    margin: 0 auto;
+  }
 }

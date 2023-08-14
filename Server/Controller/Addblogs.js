@@ -1,30 +1,34 @@
-import Addblog from '../Model/Addblog.js';
+import BlogModel from '../Model/Addblog.js';
 
 // Create a new blog
 export const createBlog = async (req, res) => {
-  try {
-    const { title, files, content, publishDateTime } = req.body;
+  const { title, content, publishDate ,image} = req.body;
 
-    const newBlog = new Addblog({
+  try {
+  
+    const newBlog = new BlogModel({
       title,
-      files,
+      image: req.file.path,
       content,
-      publishDateTime,
+      publishDateTime: new Date(publishDate),
     });
 
-    await newBlog.save();
-    res.status(201).json(newBlog);
+     const savedProduct = await newBlog.save();
+     console.log(savedProduct);
+
+     res.json({Response:true , message:'Added Successfully '});
+     console.log("Product added successfully");
   } catch (error) {
-    console.error('Error creating blog:', error);
-    res.status(500).json({ error: 'Internal server error' });
+  console.log(error);
   }
 };
 
 // Get all blogs
 export const getBlogs = async (req, res) => {
   try {
-    const blogs = await Addblog.find();
+    const blogs = await BlogModel.find();
     res.status(200).json(blogs);
+    
   } catch (error) {
     console.error('Error getting blogs:', error);
     res.status(500).json({ error: 'Internal server error' });
