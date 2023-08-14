@@ -1,80 +1,54 @@
+import React, { useEffect, useState } from 'react';
 import '../Assessts/Blog.css';
-import Breadcrumb from './Breadcrumb';
-import Table from 'react-bootstrap/Table';
-import img1 from '../Images/Banner9.png';
-import Footer from './Footer';
-import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getBlogs } from '../Service/API';
+import Footer from "./Footer";
 
-function Blog(){
+function Blog() {
+  const [blogdetails, setBlogdetails] = useState([]);
 
-    const[blogdetails , setblogdetails]=useState([]);
+  useEffect(() => {
+    getBlogdetails();
+  }, []);
 
-    const breadcrumbItems = [
-        { label: "Home", path: "/" },
-        { label: "Blog", path: "/Blog", active: true },
-      ];
+  const getBlogdetails = async () => {
+    const result = await getBlogs();
+    setBlogdetails(result.data);
+    console.log(result.data);
+  };
 
-      useEffect(()=>{
-        getblogdetails();
-      },[]);
+  const formatDate = (dateTimeString) => {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(dateTimeString).toLocaleDateString(undefined, options);
+  };
 
-      const getblogdetails= async()=>{
-        const result=await getBlogs();
-        setblogdetails(result.data);
-        console.log(result.data);
-      }
-
-      const formatDate = (dateTimeString) => {
-        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-        return new Date(dateTimeString).toLocaleDateString(undefined, options);
-      };
-
-    return(
-     
-        <div>
-              <div className="Blog-first-div">
-                <div className="Blog-first-text-container">
-                    <Breadcrumb items={breadcrumbItems} />
-                    <h1 style={{color:"black"}}>Blogs</h1>
-                </div>
-                <img src={img1} className="Blog-first-div-image" alt="About Us Image" />
-            </div>
-        
-
-            <div>
-            <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Title</th>
-          <th>Content</th>
-          <th>Date and Time</th>
-        </tr>
-      </thead>
-      
-
-      {blogdetails.map((details , index)=>(
-        <tbody>
-    <tr key={index}>
-        <td><img style={{width:"4rem", height:"5rem"}} src={`http://localhost:5000/${details.image}`} alt="" /></td>
-        <td>{details.title}</td>
-        <td>{details.content}</td>  
-        <td>{formatDate(details.publishDateTime)}</td>
-
-
-    </tr>
-    </tbody>
-))}
-        
-   
-    </Table>
-
-
-            </div>
-
-        <Footer />
+  return (
+    <div>
+      {blogdetails.map((details, index) => (
+        <div className="blog-card spring-fever" key={index}>
+          <div className="blog-image">
+            <img
+              style={{ width: '20rem', height: '10rem' }}
+              src={`http://localhost:5000/${details.image}`}
+              alt=""
+            />
+          </div>
+          <div className="blog-content">
+            <h4>{details.title}</h4>
+            <p>{details.content.slice(0, details.content.indexOf('\n', 100))}...</p>
+          </div>
+          <div className="blog-date">
+            <p>{formatDate(details.publishDateTime)}</p>
+            <Link to={`/blog/${details.id}`} className="read-more">
+              <span className="licon icon-arr icon-black"></span>Read more
+            </Link>
+          </div>
         </div>
-    )
+      ))}
+
+      <Footer />
+    </div>
+  );
 }
+
 export default Blog;

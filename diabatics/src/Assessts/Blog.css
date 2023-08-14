@@ -1,22 +1,83 @@
-.Blog-first-div {
-    position: relative; 
-    width: 100vw;
-    height: 30vh;
-    overflow: hidden; 
-  }
-  
-  .Blog-first-text-container {
-    position: absolute; /* Position the text container */
-    top: 0; /* Position at the top of the div */
-    left: 0; /* Position at the left of the div */
-    width: 100%; /* Occupy the full width of the div */
-    padding: 10px; /* Add padding for spacing */
-    color: white; /* Set text color to white */
-  }
-  
-  .Blog-first-div-image {
-    width: 100%; /* Ensure the image width fits the first div */
-    max-height: 100%; /* Ensure the image height fits the first div */
-    object-fit: cover; /* Maintain aspect ratio and cover the available space */
-    margin: 0; /* Remove any default margins */
-  }
+.blog-card {
+  max-width: 90%;
+  width: 100%;
+  height: auto;
+  position: relative;
+  color: black;
+  margin: 20px auto;
+  border-radius: 0px;
+  box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  transition: all 0.4s;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 120%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.blog-image {
+  flex: 1;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.blog-content {
+  flex: 2;
+  text-align: center;
+}
+
+.blog-date {
+  flex: 1;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.blog-card h4 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.blog-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.blog-card a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.blog-card a:hover {
+  text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.95);
+}
+
+.blog-card .licon {
+  position: relative;
+  width: 23px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  color: black;
+}
+
+.blog-card .licon:before {
+  content: "";
+  background: url(https://rawcdn.githack.com/Nodws/NodPen/ffad95aa5244b4b09a3c7c1508a018959bbedb7e/postItem/licons.svg) -2px -6px no-repeat;
+  background-size: 250px;
+  width: 26px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  top: -3px;
+  left: 0;
+  color: black;
+}
+
+.blog-card .read-more {
+  color: #FF6600;
+}
