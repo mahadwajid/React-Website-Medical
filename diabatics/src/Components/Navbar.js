@@ -31,10 +31,9 @@ function Navigation(){
                 <NavDropdown.Divider />
               </NavDropdown>
               </Link> */}
-              <Nav.Link className="navbarLink" href="Services" to="/Services" >Services</Nav.Link>
-              <Nav.Link className="navbarLink" href="Blog"  to="/Blog" >Blogs</Nav.Link>
-              <Nav.Link className="navbarLink" href="#link">Faqs</Nav.Link>
-              <Nav.Link className="navbarLink" href="Contactus" to="/Contactus">Contact us</Nav.Link>
+              <NavLink className="navbarLink" href="Services" to="/Services" >Services</NavLink>
+              <NavLink className="navbarLink" href="Blog"  to="/Blog" >Blogs</NavLink>
+              <NavLink className="navbarLink" href="Contactus" to="/Contactus">Contact us</NavLink>
 
               <Link to="/Admin">
               <button>SwitchAdmin</button>

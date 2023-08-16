@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import {connection} from './Connection.js';
 import Createblog from './Routes/Addblog.js';
 import blog from './Routes/Addblog.js';
+import Routeblogshow from './Routes/Showblog.js';
 
 const app= express();
 app.listen(5000);
@@ -27,3 +28,6 @@ connection.then(()=> {
 app.use('/Admin/Adminblog',Createblog);
 app.use('/Blog',blog);
 app.use('/images', express.static('images'));
+
+app.use("/Blogshow",Routeblogshow);
+

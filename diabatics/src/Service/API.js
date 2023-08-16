@@ -10,3 +10,7 @@ export const addBlog = async (formdata) => {
 export const getBlogs = async () => {
     return await axios.get(`${url}/Blog`);
 };
+
+export const getblogbyid = async (id) =>{
+    return await axios.get(`${url}/Blogshow/${id}`);
+};

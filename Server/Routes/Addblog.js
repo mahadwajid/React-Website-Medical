@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { createBlog, getBlogs } from '../Controller/Addblogs.js';
+import { createBlog, getBlogs,} from '../Controller/Addblogs.js';
 
 const router = express.Router();
 
@@ -16,7 +16,8 @@ const storage = multer.diskStorage({
 const upload= multer({storage : storage});
 
 // Routes for blogs
-router.post('/',upload.single('image'), createBlog);
+router.post('/',upload.fields([{ name: 'image' }, { name: 'authorImage' }]), createBlog);
 router.get('/', getBlogs);
+
 
 export default router;

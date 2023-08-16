@@ -36,6 +36,7 @@
   margin-bottom: 15px;
   border: 1px solid #ced4da;
   border-radius: 5px;
+  
 }
 
 .adminblog-form button {
@@ -52,6 +53,17 @@
 
 .adminblog-form button:hover {
   background-color: #0056b3;
+}
+
+.ql-editor {
+  background-color: white; /* Set the content background color */
+  color: black; /* Set the content text color */
+}
+
+/* Style the Quill toolbar */
+.ql-toolbar {
+  background-color: wheat; /* Set the toolbar background color */
+  color: white; /* Set the toolbar text color */
 }
 
 /* Additional styles for responsiveness */

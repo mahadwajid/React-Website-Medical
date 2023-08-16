@@ -1,0 +1,46 @@
+.Blog-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    
+}
+
+.Blog-img {
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 20px;
+}
+
+.Full-width-img {
+    width: 100%;
+    height: 50vh;
+}
+
+.Blog-Content {
+    width: 75%;
+ 
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.Author-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -175vh;
+    align-items: center;
+
+    width: 40vh ;
+    height: 40vh;
+    margin-left: 74vw;
+}
+
+.author-image img {
+    width: 40vh; /* Adjust the size as needed */
+    height: 40vh; 
+}
+
+.author-name {
+    text-align: center;
+}

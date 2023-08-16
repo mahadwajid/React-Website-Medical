@@ -3,8 +3,8 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import Admin from "./Components/Admin/Admin";
 import Adminblog from "./Components/Admin/Adminblog";
 import Blog from "./Components/Blog";
+import Blogshow from "./Components/Blogshow";
 import Contactus from "./Components/Contactus";
-import Footer from "./Components/Footer";
 import Home from "./Components/Home";
 import Navigation from "./Components/Navbar";
 import Services from "./Components/Services";
@@ -24,6 +24,7 @@ function App(){
     <div>
    
      {showNavbar && <Navigation />}
+
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Whoweare" element={<Whoweare />} />
@@ -32,6 +33,7 @@ function App(){
       <Route path="/Contactus" element={<Contactus />} />
       <Route path="/Admin" element={<Admin />} />
       <Route path="/Admin/Adminblog" element={<Adminblog />} />
+      <Route path="/Blogshow/:id" element={<Blogshow />} />
       </Routes>
 
 

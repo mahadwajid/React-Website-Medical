@@ -24,12 +24,12 @@ function Blog() {
 
   return (
     <div>
-      {blogdetails.map((details, index) => (
-        <div className="blog-card spring-fever" key={index}>
+      {blogdetails.map((details) => (
+        <div className="blog-card spring-fever" key={details._id}>
           <div className="blog-image">
             <img
               style={{ width: '20rem', height: '10rem' }}
-              src={`http://localhost:5000/${details.image}`}
+              src={`http://localhost:5000/images/${details.image}`}
               alt=""
             />
           </div>
@@ -39,7 +39,7 @@ function Blog() {
           </div>
           <div className="blog-date">
             <p>{formatDate(details.publishDateTime)}</p>
-            <Link to={`/blog/${details.id}`} className="read-more">
+            <Link to={`/Blogshow/${details._id}`} className="read-more">
               <span className="licon icon-arr icon-black"></span>Read more
             </Link>
           </div>
