@@ -2,6 +2,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import Admin from "./Components/Admin/Admin";
 import Adminblog from "./Components/Admin/Adminblog";
+import Showblog from "./Components/Admin/Showblog";
 import Blog from "./Components/Blog";
 import Blogshow from "./Components/Blogshow";
 import Contactus from "./Components/Contactus";
@@ -33,6 +34,7 @@ function App(){
       <Route path="/Contactus" element={<Contactus />} />
       <Route path="/Admin" element={<Admin />} />
       <Route path="/Admin/Adminblog" element={<Adminblog />} />
+      <Route path="/Admin/Showblog" element={<Showblog />} />
       <Route path="/Blogshow/:id" element={<Blogshow />} />
       </Routes>
 

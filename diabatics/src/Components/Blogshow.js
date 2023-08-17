@@ -16,7 +16,7 @@ function Blogshow() {
     const getBlogsdetails = async () => {
         try {
             const response = await getblogbyid(id);
-            setblogbyid([response.data]); 
+            setblogbyid([response.data]);
         } catch (error) {
             console.log("Data Error...");
         }
@@ -24,8 +24,8 @@ function Blogshow() {
 
     return (
         <div>
-            {blogbyid.map((details) => (
-                <div key={details._id} className="Blog-container">
+            {blogbyid.map(details =>
+                           <div key={details._id} className="Blog-container">
                     <div className="Blog-img">
                         <img src={`http://localhost:5000/images/${details.image}`} alt="Blog Image" className="Full-width-img" />
                     </div>
@@ -44,7 +44,10 @@ function Blogshow() {
                         </div>
                     </div>
                 </div>
-            ))}
+
+            )}
+
+             
             <Footer />
         </div>
     );

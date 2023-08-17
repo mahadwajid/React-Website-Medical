@@ -11,6 +11,7 @@ function Adminnavbar(){
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="ms-auto">
             <NavLink href="Adminblog" to="/Admin/Adminblog">Add Blog</NavLink>
+            <NavLink href="Adminblog" to="/Admin/Showblog">Show Blog</NavLink>
           </Nav>
         </Container>
       </Navbar>

@@ -33,9 +33,9 @@ function Blog() {
               alt=""
             />
           </div>
-          <div className="blog-content">
+          <div className="blog-content truncate"> {/* Add the 'truncate' class here */}
             <h4>{details.title}</h4>
-            <p>{details.content.slice(0, details.content.indexOf('\n', 100))}...</p>
+            <div dangerouslySetInnerHTML={{ __html: details.content }} />
           </div>
           <div className="blog-date">
             <p>{formatDate(details.publishDateTime)}</p>
