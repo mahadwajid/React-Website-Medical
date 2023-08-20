@@ -2,6 +2,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import Admin from "./Components/Admin/Admin";
 import Adminblog from "./Components/Admin/Adminblog";
+import Patientdata from "./Components/Admin/Patientdata";
+import ShowPatientdata from "./Components/Admin/ShowPatientdata";
 import Showblog from "./Components/Admin/Showblog";
 import Blog from "./Components/Blog";
 import Blogshow from "./Components/Blogshow";
@@ -36,6 +38,9 @@ function App(){
       <Route path="/Admin/Adminblog" element={<Adminblog />} />
       <Route path="/Admin/Showblog" element={<Showblog />} />
       <Route path="/Blogshow/:id" element={<Blogshow />} />
+      <Route path="/Admin/Patientdata" element={<Patientdata />} />
+      <Route path="/Admin/ShowPatientdata" element={<ShowPatientdata />} />
+
       </Routes>
 
 

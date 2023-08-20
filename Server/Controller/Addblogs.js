@@ -54,3 +54,13 @@ export const getblogbyid = async (req, res) =>{
     res.status(500).json({message:"Error Internal server"});
   }
 };
+
+export const deleteblog = async (req , res ) =>{
+  try{
+    const {id} = req.params;
+    await BlogModel.findByIdAndDelete(id);
+    res.json({message:'Delete Successfully'});
+  }catch(error){
+    res.status(500).json({error:'Internal Server Error'});
+  }
+}

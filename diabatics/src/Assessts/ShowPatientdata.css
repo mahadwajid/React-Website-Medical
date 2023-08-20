@@ -1,0 +1,44 @@
+/* ShowPatientdata.css */
+/* Style the container */
+.patient-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style each table */
+.patient-table {
+    width: 100%;
+    margin: 50px auto; 
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Style the table header */
+.patient-table th {
+    background-color: #f2f2f2;
+}
+
+/* Style table rows */
+.patient-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.patient-table th, .patient-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style sub-tables */
+.sub-table {
+    width: 100%;
+}
+
+/* Style sub-table rows */
+.sub-table td {
+    padding: 4px;
+    border-bottom: 1px solid #ddd;
+}

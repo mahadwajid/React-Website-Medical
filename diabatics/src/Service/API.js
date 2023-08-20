@@ -14,3 +14,15 @@ export const getBlogs = async () => {
 export const getblogbyid = async (id) =>{
     return await axios.get(`${url}/Blogshow/${id}`);
 };
+
+export const deleteblogbyid = async (id) =>{
+    return await axios.delete(`${url}/Admin/Showblog/${id}`);
+}
+
+export const addPatientdata= async(formdata) =>{
+    return await axios.post(`${url}/Admin/Patientdata`,formdata);
+}
+
+export const getPatientdata = async () =>{
+    return await axios.get(`${url}/Admin/ShowPatientdata`);
+}

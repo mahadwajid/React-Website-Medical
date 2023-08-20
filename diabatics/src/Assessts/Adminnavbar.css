@@ -1,0 +1,4 @@
+.nav-divider {
+    display: inline-block;
+    width: 15px; /* Adjust this value to control the space */
+}

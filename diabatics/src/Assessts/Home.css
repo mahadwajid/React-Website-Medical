@@ -16,6 +16,25 @@
     width: 100%;
     height: 80%;
   }
+  /* Adjust the carousel for small screen dimensions */
+@media (max-width: 961px) and (max-height: 863px) {
+  .custom-carousel {
+      max-width: 95vw; /* Adjust the maximum width of the carousel */
+      max-height: 70vh; /* Adjust the maximum height of the carousel */
+  }
+
+  .carousel-inner {
+      max-width: 100%; /* Ensure images fit within the carousel */
+      max-height: 70%; /* Adjust the height of the images within the carousel */
+  }
+
+  .carousel-item img {
+      object-fit: cover; /* Maintain aspect ratio and cover the carousel item */
+      width: 100%;
+      height: 70%; /* Adjust the height of the images within the carousel */
+  }
+}
+
   
 
 /* ==================Cards CSS===================== */
@@ -76,8 +95,6 @@
 }
 
 
-
-
 .image-cont {
   width: 80%; /* Adjust the width as needed */
   padding: 20px;
@@ -109,6 +126,75 @@
 .blue-bg {
   background-color: 	rgb(223, 232, 241);
 }
+
+/* Adjust the styles for resolutions below 968x811 */
+@media (max-width: 480px) and (max-height: 960px) {
+  .card-cont {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .image-cont {
+      width: 100%;
+      padding: 5px;
+  }
+
+  .image-cont img {
+      width: 100%;
+      height: auto;
+  }
+
+  .card-heading,
+  .card-paragraph {
+      width: 100%;
+      padding: 3px;
+      text-align: center;
+      font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .Card-body {
+      height: auto;
+      padding: 5px;
+  }
+}
+
+
+
+
+
+
+
+
+/* Adjust the styles for resolutions below 961x863 */
+@media (max-width: 961px) and (max-height: 863px) {
+  .cards-container {
+      justify-content: flex-start; /* Adjust card alignment */
+  }
+
+  .card-cont {
+      flex-direction: column; /* Stack the card components vertically */
+      height: auto; /* Adjust card height */
+      transform: none; /* Reset transform */
+      margin-bottom: 20px; /* Add spacing between cards */
+  }
+
+  .image-cont {
+      width: 100%; /* Take full width on smaller screens */
+      padding: 10px; /* Reduce padding for spacing */
+  }
+
+  .card-heading,
+  .card-paragraph {
+      width: 100%; /* Take full width on smaller screens */
+      padding: 5px; /* Reduce padding for spacing */
+      text-align: center; /* Center align text */
+  }
+
+  .Card-body {
+      height: auto; /* Adjust card body height */
+  }
+}
+
 
 
 

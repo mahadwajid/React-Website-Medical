@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { createBlog, getBlogs,} from '../Controller/Addblogs.js';
+import { createBlog, deleteblog, getBlogs,} from '../Controller/Addblogs.js';
 
 const router = express.Router();
 
@@ -19,5 +19,6 @@ const upload= multer({storage : storage});
 router.post('/',upload.fields([{ name: 'image' }, { name: 'authorImage' }]), createBlog);
 router.get('/', getBlogs);
 
+router.delete("/:id",deleteblog);
 
 export default router;

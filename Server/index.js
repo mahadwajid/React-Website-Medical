@@ -6,6 +6,8 @@ import {connection} from './Connection.js';
 import Createblog from './Routes/Addblog.js';
 import blog from './Routes/Addblog.js';
 import Routeblogshow from './Routes/Showblog.js';
+import Routepatientdata from './Routes/Addpatientdata.js';
+
 
 const app= express();
 app.listen(5000);
@@ -15,6 +17,7 @@ app.listen(5000);
 app.use(cors());
 app.use(bodyParser.json({ extended: true}));
 app.use(bodyParser.urlencoded ({extended:true}));
+app.use(express.json());
 
 
 connection.then(()=> {
@@ -26,8 +29,14 @@ connection.then(()=> {
 
 
 app.use('/Admin/Adminblog',Createblog);
+app.use('/Admin/Showblog',Createblog);
 app.use('/Blog',blog);
 app.use('/images', express.static('images'));
 
 app.use("/Blogshow",Routeblogshow);
+
+app.use("/Admin/Patientdata",Routepatientdata);
+app.use("/Admin/ShowPatientdata",Routepatientdata);
+
+
 

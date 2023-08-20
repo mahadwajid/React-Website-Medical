@@ -7,11 +7,12 @@ import { Link, NavLink } from 'react-router-dom';
 
 
 function Navigation(){
+  
 
     return(
-        <div className="container">
+        <div className="container-fluid">
         <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
+        <Container >
           <img src={image} className="navbar-logo" alt="Logo" />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -20,17 +21,7 @@ function Navigation(){
 
               <NavLink className="navbarLink" href="home" to="/" >Home</NavLink>
               <NavLink className="navbarLink"  to="/Whoweare" >Who we are</NavLink>
-               
-               {/* <Link to="/Services" >
-              <NavDropdown className="navbarLink" title="Services" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-              </NavDropdown>
-              </Link> */}
+          
               <NavLink className="navbarLink" href="Services" to="/Services" >Services</NavLink>
               <NavLink className="navbarLink" href="Blog"  to="/Blog" >Blogs</NavLink>
               <NavLink className="navbarLink" href="Contactus" to="/Contactus">Contact us</NavLink>

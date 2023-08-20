@@ -1,3 +1,6 @@
+.Container-fluid{
+  height: 10vh;
+}
 .container {
     display: flex;
     justify-content: space-between;
@@ -59,3 +62,26 @@ ul#Lin-1 {
   --_p: 100%;
   --_s: .3s;
 }
+
+@media (max-width: 767px) {
+  .navbar-logo {
+      width: 30%; /* Adjust as needed */
+  }
+
+  ul#Lin-1 {
+      position: static; /* Reset position for small devices */
+      display: none; /* Hide the navigation links for small devices */
+  }
+
+  #Lin-1 {
+      position: static; /* Reset position for small devices */
+      display: flex;
+      flex-direction: column; /* Stack links vertically */
+      text-align: center; /* Center align links */
+  }
+  
+  .nav-link {
+      margin: 5px 0; /* Add space between stacked links */
+  }
+}
+
