@@ -5,6 +5,8 @@ export const createPatient = async (req, res) => {
         patientname,
         date,
         co,
+        patientaddress,
+        patientphoneno,
         bloodSugar,
         hba1c,
         serumCreatinine,
@@ -18,6 +20,8 @@ export const createPatient = async (req, res) => {
         const newPatient = PatientModel({
             patientname,
             date,
+            patientaddress,
+            patientphoneno,
             co,
             investigation: {
                 bloodSugar,
@@ -51,3 +55,13 @@ export const getPatientData = async (req , res) =>{
      res.status(500).json({ error: 'Internal server error' });
     }
 }
+
+export const deletePatient = async (req , res ) =>{
+    try{
+      const {id} = req.params;
+      await PatientModel.findByIdAndDelete(id);
+      res.json({message:'Delete Successfully'});
+    }catch(error){
+      res.status(500).json({error:'Internal Server Error'});
+    }
+  }

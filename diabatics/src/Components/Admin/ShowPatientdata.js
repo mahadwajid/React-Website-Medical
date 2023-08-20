@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getPatientdata } from "../../Service/API";
+import { deletepatientbyid, getPatientdata } from "../../Service/API";
 import '../../Assessts/ShowPatientdata.css';
 
 function ShowPatientdata() {
     const [patientDetails, setPatientDetails] = useState([]);
-    const [filteredPatientDetails, setFilteredPatientDetails] = useState([]); // New state for filtered data
+    const [filteredPatientDetails, setFilteredPatientDetails] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
@@ -14,7 +14,7 @@ function ShowPatientdata() {
     const getPatientDetails = async () => {
         const result = await getPatientdata();
         setPatientDetails(result.data);
-        setFilteredPatientDetails(result.data); // Initialize filtered data
+        setFilteredPatientDetails(result.data); 
     };
 
     const formatDate = (dateTimeString) => {
@@ -26,7 +26,6 @@ function ShowPatientdata() {
         const query = searchQuery.trim().toLowerCase();
 
         if (!query) {
-            // If the query is empty, reset the filtered data to match all patients
             setFilteredPatientDetails(patientDetails);
         } else {
             // Filter patients whose names match the query
@@ -37,6 +36,16 @@ function ShowPatientdata() {
         }
     };
 
+    const deletePatientdata = async (id) =>{
+        try{
+            await deletepatientbyid(id);
+            // Remove the deleted patient from the state
+            setPatientDetails(prevState => prevState.filter(patient => patient._id !== id));
+            setFilteredPatientDetails(prevState => prevState.filter(patient => patient._id !== id));
+        }catch(error){
+            console.log("Error deleting Blog", error);
+        }
+    };
     return (
         <div className="patient-container">
             <h2>Patients' Data</h2>
@@ -62,9 +71,29 @@ function ShowPatientdata() {
                                     <strong>Date:</strong> {formatDate(patient.date)}
                                 </td>
                             </tr>
+
                             <tr>
                                 <td colSpan="6">
-                                    <strong>CO:</strong>
+                                    <strong>Address</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan="6">{patient.patientaddress}</td>
+                            </tr>
+                            
+                            <tr>
+                                <td colSpan="6">
+                                    <strong>PhoneNo</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan="6">{patient.patientphoneno}</td>
+                            </tr>
+
+
+                            <tr>
+                                <td colSpan="6">
+                                    <strong>CO</strong>
                                 </td>
                             </tr>
                             <tr>
@@ -81,7 +110,6 @@ function ShowPatientdata() {
                                                     <td><strong>HBA1C:</strong> {patient.investigation.hba1c}</td>
                                                     <td><strong>Serum Creatinine:</strong> {patient.investigation.serumCreatinine}</td>
                                                     <td><strong>Urine:</strong> {patient.investigation.urine}</td>
-                                                    <td><strong>Protein:</strong> {patient.investigation.protein}</td>
                                                 </tr>
                                             ) : (
                                                 <tr>
@@ -102,6 +130,9 @@ function ShowPatientdata() {
                                     <strong>Follow Up:</strong> {patient.followup}
                                 </td>
                             </tr>
+                            <button onClick={() => deletePatientdata(patient._id)}>Delete</button>
+
+                            <button>Modify The Data</button>
                         </tbody>
                     </table>
                 </div>

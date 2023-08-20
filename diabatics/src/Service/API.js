@@ -26,3 +26,7 @@ export const addPatientdata= async(formdata) =>{
 export const getPatientdata = async () =>{
     return await axios.get(`${url}/Admin/ShowPatientdata`);
 }
+
+export const deletepatientbyid = async(id) =>{
+    return await axios.delete(`${url}/Admin/ShowPatientdata/${id}`);
+}

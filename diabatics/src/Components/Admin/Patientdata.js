@@ -5,17 +5,19 @@ function Patientdata() {
     const [patientDetails, setPatientDetails] = useState({
         patientname: '',
         date: '',
+        patientaddress:'',
+        patientphoneno:'',
         co: '',
-        bloodSugar: '', // Add Blood Sugar field
-        hba1c: '', // Add HBA1C field
-        serumCreatinine: '', // Add Serum Creatinine field
-        urine: '', // Add Urine field
-        protein: '', // Add Protein field
+        bloodSugar: '', 
+        hba1c: '', 
+        serumCreatinine: '',
+        urine: '', 
+        // protein: '', 
         treatment: '',
         followup: '',
     });
 
-    const { patientname, date, co, bloodSugar, hba1c, serumCreatinine, urine, protein, treatment, followup } = patientDetails;
+    const { patientname, date, patientaddress, patientphoneno, co, bloodSugar, hba1c, serumCreatinine, urine, treatment, followup } = patientDetails;
 
     const handleChange = (event) => {
         setPatientDetails({ ...patientDetails, [event.target.name]: event.target.value });
@@ -59,6 +61,33 @@ function Patientdata() {
                                 required
                             />
                         </div>
+
+                        <div>
+                            <label htmlFor="patientaddress">Patient Address</label>
+                            <input
+                                name="patientaddress"
+                                type="text"
+                                id="patientaddress"
+                                value={patientaddress}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label htmlFor="patientphoneno">Patient PhoneNo</label>
+                            <input
+                                name="patientphoneno"
+                                type="text"
+                                id="patientphoneno"
+                                value={patientphoneno}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                    
+                        
                         <div>
                             <label htmlFor="co">CO</label>
                             <input
@@ -110,7 +139,7 @@ function Patientdata() {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div>
+                        {/* <div>
                             <label htmlFor="protein">Protein</label>
                             <input
                                 name="protein"
@@ -119,7 +148,7 @@ function Patientdata() {
                                 value={protein}
                                 onChange={handleChange}
                             />
-                        </div>
+                        </div> */}
                         <div>
                             <label htmlFor="treatment">Treatment</label>
                             <textarea
