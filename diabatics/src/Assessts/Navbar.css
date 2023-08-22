@@ -63,6 +63,9 @@ ul#Lin-1 {
   --_s: .3s;
 }
 
+
+
+
 @media (max-width: 767px) {
   .navbar-logo {
       width: 30%; /* Adjust as needed */

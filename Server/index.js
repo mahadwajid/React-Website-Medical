@@ -7,6 +7,7 @@ import Createblog from './Routes/Addblog.js';
 import blog from './Routes/Addblog.js';
 import Routeblogshow from './Routes/Showblog.js';
 import Routepatientdata from './Routes/Addpatientdata.js';
+import Routelogin from './Routes/Login.js';
 
 
 const app= express();
@@ -37,6 +38,8 @@ app.use("/Blogshow",Routeblogshow);
 
 app.use("/Admin/Patientdata",Routepatientdata);
 app.use("/Admin/ShowPatientdata",Routepatientdata);
+
+app.use("/Login",Routelogin);
 
 
 

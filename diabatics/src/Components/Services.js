@@ -8,6 +8,7 @@ import img8 from './../Images/Logo2.png';
 import img9 from './../Images/Logo3.png';
 import img10 from './../Images/Logo4.png';
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 function Services(){
     const breadcrumbItems = [
@@ -51,32 +52,47 @@ function Services(){
             </h1>
         </div>
 
-        <div>
-  <Row xs={1} md={6} className="g-3">
-    {cardContent.map((content, idx) => (
-      <Col key={idx} md={4}>
-        <Card
-          style={{ height: '30vh' }}
-          className="card-cont"
-          onMouseEnter={(e) => e.currentTarget.classList.add('blue-bg')}
-          onMouseLeave={(e) => e.currentTarget.classList.remove('blue-bg')}
-        >
+<Link to="/Serviceshow" className="LinkStyle"> 
+<section>
+     
+     <div className="row-1">
+       <div className="column-1">
+         <div className="card-1">
+         <div class="icon-wrapper">
+         <img src={img8} alt="Icon" /> 
+       </div>
+           <h3>Diabetes Care</h3>
+           <p>
+           Caring for your diabetes is something that can often be overlooked but is very important.
+           </p>
+         </div>
+       </div>
+       <div className="column-1">
+         <div className="card-1">
+           <div className="icon-wrapper">
+           <img src={img9} alt="Icon" /> 
+           </div>
+           <h3 className="h3-text">Obesity Care</h3>
+           <p>
+           Obesity is a medical condition in which the surplus body fat accumulates to the extent that it
+           </p>
+         </div>
+       </div>
+       <div className="column-1">
+         <div className="card-1">
+           <div className="icon-wrapper">
+           <img src={img10} alt="Icon" /> 
+           </div>
+           <h3>Nutrition Care</h3>
+           <p>
+           Our proficient team of Clinical Nutrition and Dietetics helps patients understand the requisite
+           </p>
+         </div>
+       </div>
 
-          <div className="card-cont">
-            <div className="image-cont">
-              <Card.Img variant="top" src={content.image} />
-            </div>
-            <Card.Body className="Card-body"> 
-            
-                <Card.Title>{content.title}</Card.Title>
-                <Card.Text>{content.paragraph}</Card.Text>
-            </Card.Body>
-          </div>
-        </Card>
-      </Col>
-    ))}
-  </Row>
-</div>
+     </div>
+   </section>
+</Link>
 
         <Footer />
         </div>

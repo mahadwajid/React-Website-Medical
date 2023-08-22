@@ -26,3 +26,14 @@
     height: 80vh;
     border: 2px solid black;
 }
+
+.LinkStyle {
+  text-decoration: none; /* Remove underline by default */
+  color: black; /* Set the default text color */
+}
+
+/* Style the Link component when hovered */
+.LinkStyle:hover {
+  text-decoration: none; /* Add underline on hover */
+  color: blue; /* Change text color to blue on hover */
+}

@@ -30,3 +30,23 @@ export const getPatientdata = async () =>{
 export const deletepatientbyid = async(id) =>{
     return await axios.delete(`${url}/Admin/ShowPatientdata/${id}`);
 }
+
+export const getSignup = async (details) => {
+    try {
+      const response = await axios.post(`${url}/Login`, details);
+  
+      if (response.status === 200) {
+        const { token } = response.data; // Assuming the token is returned in the response
+  
+        // You can handle token storage here, e.g., storing it in localStorage
+        localStorage.setItem('adminToken', token);
+  
+        return token;
+      } else {
+        throw new Error('Login failed');
+      }
+    } catch (error) {
+      console.error('Login failed', error);
+      throw error; // Rethrow the error for the caller to handle
+    }
+  };

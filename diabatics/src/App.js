@@ -9,10 +9,13 @@ import Blog from "./Components/Blog";
 import Blogshow from "./Components/Blogshow";
 import Contactus from "./Components/Contactus";
 import Home from "./Components/Home";
+import Login from "./Components/Login";
 import Navigation from "./Components/Navbar";
+import PrivateRoutes from "./Components/ProtectedRoute";
 import Services from "./Components/Services";
+import ServiceShow from "./Components/Serviceshow";
 import Whoweare from "./Components/Whoweare";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route ,Navigate} from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 
 
@@ -22,6 +25,8 @@ function App(){
 
   const location = useLocation();
   const showNavbar = !location.pathname.includes("/Admin");
+
+  
 
   return(
     <div>
@@ -34,12 +39,23 @@ function App(){
       <Route path="/Services" element={<Services />} />
       <Route  path="/Blog" element={<Blog />} />
       <Route path="/Contactus" element={<Contactus />} />
-      <Route path="/Admin" element={<Admin />} />
+
+      <Route element={<PrivateRoutes />}>
+        <Route path="/Admin" element={<Admin />} />
+
+      </Route>
+
+      {/* <Route path="/Admin" element={<PrivateRoute Component={Admin} />} /> */}
+
+
       <Route path="/Admin/Adminblog" element={<Adminblog />} />
       <Route path="/Admin/Showblog" element={<Showblog />} />
       <Route path="/Blogshow/:id" element={<Blogshow />} />
       <Route path="/Admin/Patientdata" element={<Patientdata />} />
       <Route path="/Admin/ShowPatientdata" element={<ShowPatientdata />} />
+      <Route path="/Login" element={<Login />} />
+       <Route path="/Serviceshow" element={<ServiceShow />} />
+    
 
       </Routes>
 
