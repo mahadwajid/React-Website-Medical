@@ -1,9 +1,11 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import AddService from "./Components/Admin/AddServices";
 import Admin from "./Components/Admin/Admin";
 import Adminblog from "./Components/Admin/Adminblog";
 import Patientdata from "./Components/Admin/Patientdata";
 import ShowPatientdata from "./Components/Admin/ShowPatientdata";
+import ShowService from "./Components/Admin/ShowService";
 import Showblog from "./Components/Admin/Showblog";
 import Blog from "./Components/Blog";
 import Blogshow from "./Components/Blogshow";
@@ -45,7 +47,6 @@ function App(){
 
       </Route>
 
-      {/* <Route path="/Admin" element={<PrivateRoute Component={Admin} />} /> */}
 
 
       <Route path="/Admin/Adminblog" element={<Adminblog />} />
@@ -54,8 +55,12 @@ function App(){
       <Route path="/Admin/Patientdata" element={<Patientdata />} />
       <Route path="/Admin/ShowPatientdata" element={<ShowPatientdata />} />
       <Route path="/Login" element={<Login />} />
-       <Route path="/Serviceshow" element={<ServiceShow />} />
+       <Route path="/Servicesshow/:id" element={<ServiceShow />} />
+       <Route path="/Admin/AddService" element={<AddService />} />
+       <Route path="/Admin/ShowService" element={<ShowService />} />
     
+
+
 
       </Routes>
 

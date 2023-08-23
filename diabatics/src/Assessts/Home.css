@@ -87,16 +87,9 @@
 }
 
 /* =======================Lower Card ================ */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-section {
-  /* height: 70vh; */
+section{
   width: 100%;
-  display: grid;
+  display:grid;
   place-items: center;
   background: none;
 }
@@ -158,19 +151,19 @@ p {
   background-color: transparent; /* Optional: You can remove the background color if it's not needed */
 }
 
-.card:hover {
+/* .card-1:hover {
   background-position: 0 100%;
 }
-.card:hover .icon-wrapper {
+.card-1:hover .icon-wrapper {
   background-color: #ffffff;
   color: white;
 }
-.card:hover h3 {
+.card-1:hover h3 {
   color: #ffffff;
 }
-.card:hover p {
+.card-1:hover p {
   color: #f0f0f0;
-}
+} */
 /* CSS for larger screens (e.g., tablets and desktops) */
 @media screen and (min-width: 768px) {
   section {
@@ -195,15 +188,6 @@ p {
     padding: 1em; /* Adjust card padding for smaller screens */
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 /* Adjust the styles for resolutions below 961x863 */

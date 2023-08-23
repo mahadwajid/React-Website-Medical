@@ -37,3 +37,27 @@
   text-decoration: none; /* Add underline on hover */
   color: blue; /* Change text color to blue on hover */
 }
+
+.card-row {
+  display: flex; /* Use Flexbox */
+  flex-wrap: wrap; /* Wrap cards to the next row if they overflow */
+  justify-content: space-between; /* Space between cards */
+  gap: 20px; /* Adjust the gap between cards */
+}
+
+.card-1 {
+  /* Style for each card */
+  width: calc(33.33% - 20px); /* Adjust the card width and gap */
+  /* Add other styling as needed */
+
+
+  /* Responsive styles for larger devices (e.g., desktops) */
+  @media (min-width: 768px) {
+    width: calc(25% - 20px); /* Adjust card width for larger screens */
+  }
+
+  /* Responsive styles for smaller devices (e.g., mobile) */
+  @media (max-width: 576px) {
+    width: calc(50% - 20px); /* Adjust card width for smaller screens */
+  }
+}

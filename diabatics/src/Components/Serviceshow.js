@@ -1,30 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getServicebyid } from '../Service/API';
+import { useParams } from "react-router-dom";
+import Footer from "./Footer";
 
 function ServiceShow() {
+    const { id } = useParams();
+    const[Serviceid, setServiceid]=useState([]);
+
+    useEffect(()=>{
+        getServicedet();
+    },[]);
+
+
+    const getServicedet = async () => {
+        try {
+            const response = await getServicebyid(id);
+            setServiceid([response.data]);
+        } catch (error) {
+            console.log("Data Error...");
+        }
+    }
+
+
     return (
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            {/* First Div */}
-            <div style={{ flex: 1 }}>
-                <h2>Title for First Div</h2>
-                <p>This is the paragraph for the first div.</p>
-                <img
-                    src="image-url-for-first-div.jpg"
-                    alt="Image for First Div"
-                    style={{ maxWidth: '100%', height: 'auto' }}
-                />
+        <div>
+        {Serviceid.map(details =>
+                       <div key={details._id} className="Blog-container">
+                <div className="Blog-img">
+                    <img src={`http://localhost:5000/images/${details.image}`} alt="Blog Image" className="Full-width-img" />
+                </div>
+
+                <div className="Blog-Content">
+                    <h2>{details.title}</h2>
+                    <div dangerouslySetInnerHTML={{ __html: details.Content }} />
+                </div>
+
+            
             </div>
 
-            {/* Second Div */}
-            <div style={{ flex: 1 }}>
-                <h2>Title for Second Div</h2>
-                <p>This is the paragraph for the second div.</p>
-                <img
-                    src="image-url-for-second-div.jpg"
-                    alt="Image for Second Div"
-                    style={{ maxWidth: '100%', height: 'auto' }}
-                />
-            </div>
-        </div>
+        )}
+
+         
+        <Footer />
+    </div>
     );
 }
 

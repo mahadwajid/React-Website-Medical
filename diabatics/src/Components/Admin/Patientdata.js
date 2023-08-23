@@ -11,8 +11,7 @@ function Patientdata() {
         bloodSugar: '', 
         hba1c: '', 
         serumCreatinine: '',
-        urine: '', 
-        // protein: '', 
+        urine: '',  
         treatment: '',
         followup: '',
     });

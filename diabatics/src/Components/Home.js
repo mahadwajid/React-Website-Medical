@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import img from "./../Images/Banner1.png";
 import img2 from "./../Images/Banner2.png";
 import img3 from "./../Images/Banner3.png";
@@ -9,36 +9,18 @@ import img7 from './../Images/Banner5.png';
 import img8 from './../Images/Logo2.png';
 import img9 from './../Images/Logo3.png';
 import img10 from './../Images/Logo4.png';
-
 import '../Assessts/Home.css';
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Footer from "./Footer";
-import { TbBrandSugarizer } from 'react-icons/tb'; 
+import { getService } from '../Service/API';
+import { Link } from "react-router-dom";
 
 function Home() {
+
+  const [Service, setService] = useState([]);
+
   const carouselRef = useRef(null);
-  const cardContent = [
-    {
-      image: img8,
-      title: 'Diabetes Care',
-      paragraph: 'Caring for your diabetes is something that can often be overlooked but is very important.',
-    },
-    {
-      image: img9,
-      title: 'Obesity Care',
-      paragraph: 'Obesity is a medical condition in which the surplus body fat accumulates to the extent that it',
-    },
-    {
-      image: img10,
-      title: 'Nutrition Care',
-      paragraph: 'Our proficient team of Clinical Nutrition and Dietetics helps patients understand the requisite',
-    }
-
-  ];
-
 
 
 
@@ -55,6 +37,19 @@ function Home() {
 
     return () => clearInterval(carouselInterval);
   }, []);
+
+
+
+  useEffect(() => {
+    getServicedetails();
+  }, []);
+
+
+  const getServicedetails = async () => {
+    const result = await getService();
+    setService(result.data);
+    console.log(result.data);
+  };
 
   return (
     <div>
@@ -132,8 +127,8 @@ function Home() {
 
 
       <div class="image-containers">
-    <img src={img7} alt="Image" />
-  </div>
+        <img src={img7} alt="Image" />
+      </div>
 
 
       <div style={{ textAlign: "center" }}>
@@ -144,48 +139,24 @@ function Home() {
       </div>
 
 
-
-<section>
-     
-      <div className="row-1">
-        <div className="column-1">
-          <div className="card-1">
-          <div class="icon-wrapper">
-          <img src={img8} alt="Icon" /> 
-        </div>
-            <h3>Diabetes Care</h3>
-            <p>
-            Caring for your diabetes is something that can often be overlooked but is very important.
-            </p>
-          </div>
-        </div>
-        <div className="column-1">
-          <div className="card-1">
-            <div className="icon-wrapper">
-            <img src={img9} alt="Icon" /> 
+      <Link to="/Services" style={{textDecoration:"none"}}>
+      <section className="card-row">
+        {Service.map((details) => (
+          
+          <div className="card-1" key={details._id}>
+            <div class="icon-wrapper">
+              <img src={`http://localhost:5000/images/${details.image}`} alt="Icon" />
             </div>
-            <h3 className="h3-text">Obesity Care</h3>
-            <p>
-            Obesity is a medical condition in which the surplus body fat accumulates to the extent that it
-            </p>
-          </div>
-        </div>
-        <div className="column-1">
-          <div className="card-1">
-            <div className="icon-wrapper">
-            <img src={img10} alt="Icon" /> 
+            <div className="blog-content truncate">
+              <h3>{details.title}</h3>
+              <p>{details.Content}</p>
             </div>
-            <h3>Nutrition Care</h3>
-            <p>
-            Our proficient team of Clinical Nutrition and Dietetics helps patients understand the requisite
-            </p>
           </div>
-        </div>
-
-      </div>
-    </section>
-
-    <Footer />
+          
+        ))}
+      </section>
+      </Link>
+      <Footer />
     </div>
   );
 }

@@ -18,6 +18,12 @@ function Adminnavbar(){
             <NavLink href="Adminblog" to="/Admin/Patientdata">Enter Patient Data</NavLink>
             <span className="nav-divider"></span>
             <NavLink href="Adminblog" to="/Admin/ShowPatientdata">Show Patient Data</NavLink>
+
+            <span className="nav-divider"></span>
+            <NavLink href="Adminblog" to="/Admin/AddService">Add Service</NavLink>
+
+            <span className="nav-divider"></span>
+            <NavLink href="Adminblog" to="/Admin/ShowService">Show Service</NavLink>
           </Nav>
         </Container>
       </Navbar>

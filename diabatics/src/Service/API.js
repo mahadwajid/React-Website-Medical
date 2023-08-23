@@ -50,3 +50,19 @@ export const getSignup = async (details) => {
       throw error; // Rethrow the error for the caller to handle
     }
   };
+
+  export const addService = async (formdata) =>{
+    return await axios.post(`${url}/Admin/AddService`,formdata);
+  }
+
+  export const getService = async () => {
+    return await axios.get(`${url}/Admin/ShowService`);
+};
+
+export const deleteServicebyid= async (id) =>{
+  return await axios.delete(`${url}/Admin/ShowService/${id}`);
+};
+
+export const getServicebyid = async (id) =>{
+  return await axios.get(`${url}/Servicesshow/${id}`);
+};
