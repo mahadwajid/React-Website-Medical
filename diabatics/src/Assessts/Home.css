@@ -35,6 +35,8 @@
   }
 }
 
+
+
   
 
 /* ==================Cards CSS===================== */
@@ -84,6 +86,19 @@
 .image-containers img {
   width: 100%;
   height: 80vh;
+}
+
+/* Styles for small devices (e.g., smartphones) */
+@media screen and (max-width: 768px) {
+  .image-containers {
+    height: 40vh; /* Adjust the height for small devices as needed */
+  }
+
+  /* Make the <img> cover the entire width while maintaining its aspect ratio */
+  .image-containers img {
+    width: 100%;
+    height: auto; /* Allow the height to adjust based on aspect ratio */
+  }
 }
 
 /* =======================Lower Card ================ */

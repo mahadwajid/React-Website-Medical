@@ -1,25 +1,47 @@
+/* Default styles for larger devices */
+
+/* .Ser-first-div Section */
 .Ser-first-div {
-    position: relative; 
-    width: 100vw;
-    height: 30vh;
-    overflow: hidden; 
+  position: relative;
+  width: 100vw;
+  height: 30vh;
+  overflow: hidden;
+}
+
+.Ser-first-text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  color: white;
+}
+
+.Ser-first-div-image {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  margin: 0;
+}
+
+
+/* Styles for small devices (e.g., smartphones) */
+@media screen and (max-width: 768px) {
+  /* .Ser-first-div Section */
+  .Ser-first-div {
+    height: 50vh; /* Adjust the height for small devices as needed */
   }
-  
+
   .Ser-first-text-container {
-    position: absolute; /* Position the text container */
-    top: 0; /* Position at the top of the div */
-    left: 0; /* Position at the left of the div */
-    width: 100%; /* Occupy the full width of the div */
-    padding: 10px; /* Add padding for spacing */
-    color: white; /* Set text color to white */
+    padding: 5px; /* Adjust the padding for spacing on small devices */
   }
-  
+
   .Ser-first-div-image {
-    width: 100%; /* Ensure the image width fits the first div */
-    max-height: 100%; /* Ensure the image height fits the first div */
-    object-fit: cover; /* Maintain aspect ratio and cover the available space */
-    margin: 0; /* Remove any default margins */
+    max-height: 50vh; /* Adjust the max-height for the image on small devices */
   }
+
+}
+
   
 .Card-ser{
     width: 100vw;

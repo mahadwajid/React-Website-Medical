@@ -1,3 +1,4 @@
+/* Default styles for larger devices */
 .Blog-container {
     display: flex;
     flex-direction: column;
@@ -41,4 +42,25 @@
 
 .author-name {
     text-align: center;
+}
+
+/* Styles for small devices (e.g., smartphones) */
+@media screen and (max-width: 480px) {
+    .Blog-container {
+        margin: 10px; /* Adjust margin for small devices */
+    }
+
+    .Blog-img,
+    .Full-width-img {
+        height: 30vh; /* Adjust height for small devices */
+    }
+
+    .Blog-Content {
+        width: 100%; /* Use full width for small devices */
+        padding: 10px; /* Adjust padding for small devices */
+    }
+
+    .Author-container {
+        display: none; /* Hide the author container on small screens */
+    }
 }

@@ -156,6 +156,7 @@ function Home() {
         ))}
       </section>
       </Link>
+      <br />
       <Footer />
     </div>
   );

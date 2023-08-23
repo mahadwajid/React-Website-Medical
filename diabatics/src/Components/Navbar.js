@@ -7,11 +7,34 @@ import { Link, NavLink } from 'react-router-dom';
 import React, { useState } from 'react';
 import UserProfileModal from './UserprofileModel'; 
 
-
 function Navigation(){
+
+  const menudata=[
+    {
+      path:'/',
+      name:"Home"
+    },
+    {
+      path:'/Whoweare',
+      name:"Whoweare"
+    },
+    {
+      path:'/Services',
+      name:"Services"
+    },
+    {
+      path:'/Blog',
+      name:"Blog"
+    },
+    {
+      path:"/Contactus",
+      name:"Contactus"
+    }
+  ]
 
   const isLoggedIn = !!localStorage.getItem('adminToken');
   const userEmail = localStorage.getItem('userEmail');
+
   
   const [showUserProfileModal, setShowUserProfileModal] = useState(false); // State to control the modal
 
@@ -30,21 +53,24 @@ function Navigation(){
   };
 
     return(
-        <div className="container-fluid">
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <div >
+        <Navbar expand="lg" className='navbar'>
         <Container >
           <img src={image} className="navbar-logo" alt="Logo" />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <ul id="Lin-1">
+              
+              {
+                menudata.map((item)=>(
+                  <NavLink to={item.path} key={item.name} style={{textDecoration:"none"}}>
+                    <div className="list-items">{item.name}</div>
 
-              <NavLink className="navbarLink" href="home" to="/" >Home</NavLink>
-              <NavLink className="navbarLink"  to="/Whoweare" >Who we are</NavLink>
-          
-              <NavLink className="navbarLink" href="Services" to="/Services" >Services</NavLink>
-              <NavLink className="navbarLink" href="Blog"  to="/Blog" >Blogs</NavLink>
-              <NavLink className="navbarLink" href="Contactus" to="/Contactus">Contact us</NavLink>
+                  </NavLink>
+
+                ))
+              }
+
 
               {isLoggedIn ? (
             <div>
@@ -56,8 +82,6 @@ function Navigation(){
             </Link>
           )}
 
-
-              </ul>
             </Nav>
           </Navbar.Collapse>
         </Container>

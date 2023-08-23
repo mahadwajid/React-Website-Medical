@@ -1,3 +1,5 @@
+/* Default styles for larger devices */
+
 .blog-card {
   max-width: 90%;
   width: 100%;
@@ -91,3 +93,26 @@
   -webkit-box-orient: vertical;
 }
 
+/* Styles for small devices (e.g., smartphones) */
+@media screen and (max-width: 768px) {
+  .blog-card {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    max-width: 100%; /* Adjust the width for small devices */
+  }
+
+  .blog-image,
+  .blog-content,
+  .blog-date {
+    flex: 1; /* Equal width for all sections on small devices */
+    text-align: center; /* Center align text on small devices */
+    padding: 5px; /* Adjust spacing for small devices */
+  }
+
+  .blog-card h4 {
+    font-size: 1.2rem; /* Adjust the font size for small devices */
+  }
+
+  .blog-card p {
+    font-size: 0.9rem; /* Adjust the font size for small devices */
+  }
+}

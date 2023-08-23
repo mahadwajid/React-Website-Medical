@@ -1,47 +1,98 @@
+/* Default styles for larger devices */
 
+/* First Section */
 .first-div {
-    position: relative; /* Create a positioning context for absolute positioning */
-    width: 100vw;
-    height: 30vh;
-    overflow: hidden; /* Ensure the image does not overflow the div */
-  }
-  
-  .first-text-container {
-    position: absolute; /* Position the text container */
-    top: 0; /* Position at the top of the div */
-    left: 0; /* Position at the left of the div */
-    width: 100%; /* Occupy the full width of the div */
-    padding: 10px; /* Add padding for spacing */
-    color: white; /* Set text color to white */
-  }
-  
-  .first-div-image {
-    width: 100%; /* Ensure the image width fits the first div */
-    max-height: 100%; /* Ensure the image height fits the first div */
-    object-fit: cover; /* Maintain aspect ratio and cover the available space */
-    margin: 0; /* Remove any default margins */
-  }
-  
+  position: relative;
+  width: 100vw;
+  height: 30vh;
+  overflow: hidden;
+}
 
-  .Second-div {
-    display: flex; /* Use flexbox to arrange the two sections side by side */
-    width: 100vw;
-    height: 80vh;
+.first-text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  color: white;
+}
+
+.first-div-image {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Second Section */
+.Second-div {
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+}
+
+.Image-Div {
+  flex: 1;
+  padding: 30px;
+}
+
+.second-div-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Right Section */
+.Right-div {
+  flex: 2;
+  padding: 10px;
+}
+
+.Right-div h2 {
+  /* Your h2 styles for larger devices */
+}
+
+.Right-div p {
+  /* Your p styles for larger devices */
+}
+
+/* Styles for small devices (e.g., smartphones) */
+@media screen and (max-width: 768px) {
+  /* First Section */
+  .first-div {
+    height: 50vh;
   }
-  
+
+  .first-text-container {
+    padding: 5px;
+  }
+
+  .first-div-image {
+    max-height: 50vh;
+  }
+
+  /* Second Section */
   .Image-Div {
-    flex: 1; /* Make the image section take up 1/3 of the available width */
-    padding: 30px; /* Add some spacing around the image */
+    flex: 1;
+    padding: 15px;
   }
-  
+
   .second-div-image {
-    max-width: 100%; /* Make sure the image fits within the div */
-    max-height: 100%; /* Make sure the image height fits within the div */
-    object-fit: contain; /* Maintain aspect ratio and fit the image within the available space */
+    max-height: 50vh; /* Adjust as needed */
   }
-  
+
+  /* Right Section */
   .Right-div {
-    flex: 2; /* Make the content section take up 2/3 of the available width */
-    padding: 10px; /* Add some spacing around the content */
+    flex: 1;
+    padding: 5px;
   }
-  
+
+  .Right-div h2 {
+    font-size: 20px;
+  }
+
+  .Right-div p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
