@@ -2,26 +2,38 @@ import React from "react";
 import '../Assessts/Footer.css';
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub ,FaMapMarker, FaPhone, FaEnvelope} from 'react-icons/fa';
 import img from '../Images/Image5.png';
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <footer className="footer-distributed">
       <div className="footer-left">
-        {/* <h3>
-          Company<span>logo</span>
-        </h3> */}
         <img className="Footer-image"  src={img} />
         <p className="footer-links">
+          <Link to="/">
           <a href="#" className="link-1">
             Home
           </a>
+          </Link>
+
+          <Link to="/Whoweare">
+          <a href="#">Who we are</a>
+          </Link>
+
+          <Link to="/Services">
+          <a href="#">Service</a>
+          </Link>
+
+          <Link to="/Blog">
           <a href="#">Blog</a>
-          <a href="#">Pricing</a>
-          <a href="#">About</a>
-          <a href="#">Faq</a>
+          </Link>
+
+          <Link to='/Contactus'>
           <a href="#">Contact</a>
+          </Link>
+
         </p>
-        <p className="footer-company-name">Company Name © 2015</p>
+        <p className="footer-company-name">MK-Developher © 2023</p>
       </div>
 
       <div className="footer-center">

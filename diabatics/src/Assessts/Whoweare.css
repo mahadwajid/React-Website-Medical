@@ -24,37 +24,7 @@
   margin: 0;
 }
 
-/* Second Section */
-.Second-div {
-  display: flex;
-  width: 100vw;
-  height: 80vh;
-}
 
-.Image-Div {
-  flex: 1;
-  padding: 30px;
-}
-
-.second-div-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-/* Right Section */
-.Right-div {
-  flex: 2;
-  padding: 10px;
-}
-
-.Right-div h2 {
-  /* Your h2 styles for larger devices */
-}
-
-.Right-div p {
-  /* Your p styles for larger devices */
-}
 
 /* Styles for small devices (e.g., smartphones) */
 @media screen and (max-width: 768px) {
@@ -96,3 +66,260 @@
     line-height: 1.4;
   }
 }
+
+
+
+
+
+/* ==================ABOUT US============== */
+.about-page{
+  width: 100%;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+/* Base styles for larger devices */
+.brand-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  position: relative;
+  width: 60%;
+  height: 35vh;
+  background-color: #fff;
+  margin-top: 3rem;
+  margin-left: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+/* Base styles for the brand image */
+.brand-img {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  border-radius: 1rem;
+}
+
+.brand-img img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Base styles for the brand text */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.brand-text h4 {
+  font-weight: 600;
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  .brand-detail {
+    flex-direction: column; /* Stack items on small screens */
+    gap: 2rem; /* Reduce the gap between items for small screens */
+    width: 90%; /* Adjust the width for small screens */
+    margin: 3rem auto; /* Center the section */
+    height: auto; /* Allow the height to adjust based on content */
+  }
+
+  .brand-img {
+    height: 200px; /* Set a fixed height for the image on small screens */
+  }
+  
+  /* Adjust other styles as needed for smaller screens */
+}
+
+
+
+/* Base styles for larger devices */
+.brand-story {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  position: relative;
+  width: 60%;
+  height: 35vh;
+  background-color: #fff;
+  margin-top: 3rem;
+  margin-left: 39%;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+/* Base styles for the story detail */
+.story-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.story-detail h4 {
+  font-weight: 600;
+}
+
+/* Base styles for the story image */
+.story-img {
+  width: 60rem;
+  height: 100%;
+}
+
+.story-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  .brand-story {
+    flex-direction: column; /* Stack items on small screens */
+    gap: 2rem; /* Reduce the gap between items for small screens */
+    width: 90%; /* Adjust the width for small screens */
+    margin: 3rem auto; /* Center the section */
+    height: auto; /* Allow the height to adjust based on content */
+  }
+
+  .story-img {
+    width: 100%; /* Set full width for the image on small screens */
+    height: 200px; /* Set a fixed height for the image on small screens */
+  }
+
+  /* Adjust other styles as needed for smaller screens */
+}
+
+
+
+
+/* Base styles for larger devices */
+.brand-vision {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  position: relative;
+  width: 60%;
+  height: 35vh;
+  background-color: #fff;
+  margin-top: 3rem;
+  margin-left: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+/* Base styles for the vision detail */
+.vision-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.vision-detail h4 {
+  font-weight: 600;
+}
+
+/* Base styles for the vision image */
+.vision-img {
+  width: 60rem;
+  height: 100%;
+}
+
+.vision-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  .brand-vision {
+    flex-direction: column; /* Stack items on small screens */
+    gap: 2rem; /* Reduce the gap between items for small screens */
+    width: 90%; /* Adjust the width for small screens */
+    margin: 3rem auto; /* Center the section */
+    height: auto; /* Allow the height to adjust based on content */
+  }
+
+  .vision-img {
+    width: 100%; /* Set full width for the image on small screens */
+    height: 200px; /* Set a fixed height for the image on small screens */
+  }
+
+  /* Adjust other styles as needed for smaller screens */
+}
+
+
+
+/* Base styles for larger devices */
+.team-member_1 {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  position: relative;
+  width: 60%;
+  height: 35vh;
+  background-color: #fff;
+  margin-top: 3rem;
+  margin-left: 39%;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+/* Base styles for the team member image */
+.member-1_img {
+  width: 60rem;
+  height: 100%;
+}
+
+.member-1_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+/* Base styles for the team member detail */
+.team-member_detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.team-member_detail h4 {
+  font-weight: 600;
+}
+
+/* Base styles for the h2 element */
+.about-page h2 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-left: 40%;
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  .team-member_1 {
+    flex-direction: column; /* Stack items on small screens */
+    gap: 2rem; /* Reduce the gap between items for small screens */
+    width: 90%; /* Adjust the width for small screens */
+    margin: 3rem auto; /* Center the section */
+    height: auto; /* Allow the height to adjust based on content */
+  }
+
+  .member-1_img {
+    width: 100%; /* Set full width for the image on small screens */
+    height: 200px; /* Set a fixed height for the image on small screens */
+  }
+
+  /* Adjust other styles as needed for smaller screens */
+}
+

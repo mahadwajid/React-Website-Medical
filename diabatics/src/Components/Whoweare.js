@@ -3,6 +3,7 @@ import '../Assessts/Whoweare.css';
 import Breadcrumb from "./Breadcrumb";
 import img1 from '../Images/Banner6.png';
 import img2 from '../Images/Banner7.png';
+import img3 from '../Images/Image13.png';
 import Footer from "./Footer";
 
 function Whoweare() {
@@ -21,25 +22,55 @@ function Whoweare() {
                 <img src={img1} className="first-div-image" alt="About Us Image" />
             </div>
 
+            <div className="about-page">
+                <div className="brand-detail">
+                    <span className='brand-img'>
+                        <img src={img2} alt='' />
+                    </span>
+                    <span className='brand-text'>
+                        <h4>Welcome</h4>
+                        <p>"Welcome to Our Website: Obesity and Management Care. We're here to provide you with expert guidance on understanding and tackling obesity. Explore our resources for a healthier future."
 
-            <div className="Second-div">
-  <div className="Image-Div">
-    <img src={img2} className="second-div-image" alt="Image for Second Div" />
-  </div>
-  
-  <div className="Right-div">
-    <h2>
-        Welcome to Diabetes and Obesity Care
-    </h2>
-    <p>
-    Dr. Wajid Akbar, a dedicated healthcare professional, spearheads this website to raise awareness about diabetes and obesity. With a passion for promoting health and well-being, Dr. Akbar uses this platform to educate and empower individuals, fostering a healthier lifestyle and encouraging preventive measures. Through his expertise and commitment, he aims to make a positive impact on people's lives, spreading knowledge and emphasizing the importance of early intervention and healthy habits in managing these critical health concerns.
-    </p>
+                        </p>
+                    </span>
+                </div>
+                <div className="brand-story">
+                    <span className='story-detail'>
+                        <h4>Our Story</h4>
+                        <p>The story of Diabetes and Obesity began with our founder, Dr. Wajid Akbar, a dedicated healthcare professional with a passion for tackling these critical health issues. Driven by a desire to improve lives, he established our platform to provide valuable insights and support for those facing diabetes and obesity challenges.</p>
+                    </span>
+                    <span className='story-img'>
+                        <img src={img3} alt='' />
+                    </span>
+                </div>
+                <div className='brand-vision'>
+                    <span className='vision-img'>
+                        {/* <img src= {vision} alt='' /> */}
+                    </span>
+                    <span className='vision-detail'>
+                        <h4>Our Vision</h4>
+                        <p>Our vision is to create a world where diabetes and obesity are not barriers to a fulfilling life. We aspire to be a beacon of hope and knowledge, offering accessible resources and expert guidance to empower individuals in managing these health conditions effectively. Through education, support, and advocacy, we aim to promote a healthier and happier global community, free from the limitations of diabetes and obesity</p>
+                    </span>
+                </div>
+                <br />
+                <h2>Meet Our Doctor</h2>
+                <div className='team-member_1'>
+                    <span className='member-1_img'>
+                        {/* <img src= {myimage} alt=''/> */}
+                    </span>
+                    <span className='team-member_detail'>
+                        <h4>DR WAJID AKBAR</h4>
+                        <p>At WATCHGALLERY, we are proud to introduce our visionary founder and talented developer, ABDUL AZIZ . With a passion for watches and a deep understanding of technology, ABDUL AZIZ embarked on the journey to create a seamless online platform for watch enthusiasts worldwide.</p>
+                    </span>
+                </div>
+            </div>
 
-    <p>Dr. Wajid Akbar's renowned clinic is conveniently situated in the heart of Mardan, specifically at the prominent landmark of Clock Tower on Shamsi Road. This strategic location ensures easy access for the community, offering a central hub for health and wellness services. Patients seeking expert guidance in managing diabetes and obesity can find solace in the clinic's dedicated care. Dr. Akbar's commitment to the well-being of his patients extends beyond medical expertise, as he strives to create a welcoming environment where individuals can receive comprehensive support and guidance on their journey to healthier lives. The clinic's location at Clock Tower Shamsi Road, Mardan, reflects Dr. Akbar's dedication to making quality healthcare accessible to the local community.</p>
-  </div>
-</div>
 
-<Footer />
+
+
+            <br />
+
+            <Footer />
         </div>
     )
 }
