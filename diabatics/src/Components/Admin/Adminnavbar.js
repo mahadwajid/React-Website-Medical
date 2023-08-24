@@ -7,9 +7,9 @@ import '../../Assessts/Adminnavbar.css';
 function Adminnavbar(){
     return(
         <div>
-         <Navbar bg="dark" data-bs-theme="dark">
+         <Navbar bg="dark" data-bs-theme="dark" expand="md"> 
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">Admin Navbar</Navbar.Brand>
           <Nav className="ms-auto">
             <NavLink href="Adminblog" to="/Admin/Adminblog">Add Blog</NavLink>
             <span className="nav-divider"></span>

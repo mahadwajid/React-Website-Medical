@@ -60,7 +60,7 @@ function Footer() {
           <span>About the company</span>Clinic Diabetic and Obesity Care specializes in comprehensive treatments for diabetes and obesity, promoting health and well-being through expert medical care and personalized strategies.
         </p>
         <div className="footer-icons">
-      <a href="#">
+      <a href="https://www.google.com/">
         <FaFacebook />
       </a>
       <a href="#">
