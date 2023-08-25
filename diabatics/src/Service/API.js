@@ -66,3 +66,15 @@ export const deleteServicebyid= async (id) =>{
 export const getServicebyid = async (id) =>{
   return await axios.get(`${url}/Servicesshow/${id}`);
 };
+
+export const updateBlogById = async (id, data) => {
+  return await axios.put(`${url}/Admin/Showblog/${id}`, data);
+}
+
+export const updatePatientData = async (id, data) => {
+  return await axios.put(`${url}/Admin/ShowPatientdata/${id}`, data);
+}
+
+export const updateServicebyid = async (id, data) => {
+  return await axios.put(`${url}/Admin/ShowService/${id}`, data);
+}

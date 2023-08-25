@@ -65,3 +65,26 @@ export const deletePatient = async (req , res ) =>{
       res.status(500).json({error:'Internal Server Error'});
     }
   }
+
+  export const updatePatient = async (req, res) => {
+    const { id } = req.params;
+    const updatedFields = req.body;
+
+    try {
+        const updatedPatient = await PatientModel.findByIdAndUpdate(
+            id,
+            updatedFields,
+            { new: true }
+        );
+
+        if (updatedPatient) {
+            res.sendStatus(204);
+        } else {
+            res.status(404).json({ error: 'Patient not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
+  

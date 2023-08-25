@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { deletepatientbyid, getPatientdata } from "../../Service/API";
+import { deletepatientbyid, getPatientdata, updatePatientData } from "../../Service/API";
 import '../../Assessts/ShowPatientdata.css';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function ShowPatientdata() {
     const [patientDetails, setPatientDetails] = useState([]);
     const [filteredPatientDetails, setFilteredPatientDetails] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [editedPatient, setEditedPatient] = useState({});
+
 
     useEffect(() => {
         getPatientDetails();
@@ -14,7 +20,7 @@ function ShowPatientdata() {
     const getPatientDetails = async () => {
         const result = await getPatientdata();
         setPatientDetails(result.data);
-        setFilteredPatientDetails(result.data); 
+        setFilteredPatientDetails(result.data);
     };
 
     const formatDate = (dateTimeString) => {
@@ -36,16 +42,38 @@ function ShowPatientdata() {
         }
     };
 
-    const deletePatientdata = async (id) =>{
-        try{
+    const deletePatientdata = async (id) => {
+        try {
             await deletepatientbyid(id);
             // Remove the deleted patient from the state
             setPatientDetails(prevState => prevState.filter(patient => patient._id !== id));
             setFilteredPatientDetails(prevState => prevState.filter(patient => patient._id !== id));
-        }catch(error){
+        } catch (error) {
             console.log("Error deleting Blog", error);
         }
     };
+
+    const handleEditClick = (patient) => {
+        setEditedPatient(patient);
+        setShowEditModal(true);
+    };
+
+    const handleUpdatePatient = async () => {
+        try {
+            await updatePatientData(editedPatient._id, editedPatient);
+            // Update the patient details in the state
+            const updatedPatientDetails = patientDetails.map((patient) =>
+                patient._id === editedPatient._id ? editedPatient : patient
+            );
+            setPatientDetails(updatedPatientDetails);
+            setFilteredPatientDetails(updatedPatientDetails);
+            setShowEditModal(false); // Close the edit modal
+        } catch (error) {
+            console.log("Error updating Patient Data", error);
+        }
+    };
+
+
     return (
         <div className="patient-container">
             <h2>Patients' Data</h2>
@@ -80,7 +108,7 @@ function ShowPatientdata() {
                             <tr>
                                 <td colSpan="6">{patient.patientaddress}</td>
                             </tr>
-                            
+
                             <tr>
                                 <td colSpan="6">
                                     <strong>PhoneNo</strong>
@@ -132,11 +160,131 @@ function ShowPatientdata() {
                             </tr>
                             <button onClick={() => deletePatientdata(patient._id)}>Delete</button>
 
-                            <button>Modify The Data</button>
+                            <button onClick={() => handleEditClick(patient)}>Edit Data</button>
                         </tbody>
                     </table>
                 </div>
             ))}
+
+            {/* Edit Patient Data Modal */}
+            <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Edit Patient Data</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group controlId="patientname">
+                            <Form.Label>Patient Name</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={editedPatient.patientname || ''}
+                                onChange={(e) => setEditedPatient({ ...editedPatient, patientname: e.target.value })}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="patientaddress">
+                            <Form.Label>Address</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={editedPatient.patientaddress || ''}
+                                onChange={(e) => setEditedPatient({ ...editedPatient, patientaddress: e.target.value })}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="patientphoneno">
+                            <Form.Label>Phone Number</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={editedPatient.patientphoneno || ''}
+                                onChange={(e) => setEditedPatient({ ...editedPatient, patientphoneno: e.target.value })}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="co">
+                            <Form.Label>CO</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={editedPatient.co || ''}
+                                onChange={(e) => setEditedPatient({ ...editedPatient, co: e.target.value })}
+                            />
+                        </Form.Group>
+
+                        <Form.Group controlId="investigation">
+                            <Form.Label>Investigation</Form.Label>
+                            <Form.Group controlId="bloodSugar">
+                                <Form.Label>Blood Sugar</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    value={editedPatient.investigation ? editedPatient.investigation.bloodSugar || '' : ''}
+                                    onChange={(e) => {
+                                        const updatedInvestigation = { ...(editedPatient.investigation || {}), bloodSugar: e.target.value };
+                                        setEditedPatient({ ...editedPatient, investigation: updatedInvestigation });
+                                    }}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="hba1c">
+                                <Form.Label>HBA1C</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    value={editedPatient.investigation ? editedPatient.investigation.hba1c || '' : ''}
+                                    onChange={(e) => {
+                                        const updatedInvestigation = { ...(editedPatient.investigation || {}), hba1c: e.target.value };
+                                        setEditedPatient({ ...editedPatient, investigation: updatedInvestigation });
+                                    }}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="serumCreatinine">
+                                <Form.Label>Serum Creatinine</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    value={editedPatient.investigation ? editedPatient.investigation.serumCreatinine || '' : ''}
+                                    onChange={(e) => {
+                                        const updatedInvestigation = { ...(editedPatient.investigation || {}), serumCreatinine: e.target.value };
+                                        setEditedPatient({ ...editedPatient, investigation: updatedInvestigation });
+                                    }}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="urine">
+                                <Form.Label>Urine</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    value={editedPatient.investigation ? editedPatient.investigation.urine || '' : ''}
+                                    onChange={(e) => {
+                                        const updatedInvestigation = { ...(editedPatient.investigation || {}), urine: e.target.value };
+                                        setEditedPatient({ ...editedPatient, investigation: updatedInvestigation });
+                                    }}
+                                />
+                            </Form.Group>
+                        </Form.Group>
+
+
+
+                        <Form.Group controlId="treatment">
+                            <Form.Label>Treatment</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={editedPatient.treatment || ''}
+                                onChange={(e) => setEditedPatient({ ...editedPatient, treatment: e.target.value })}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="followup">
+                            <Form.Label>Follow Up</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={editedPatient.followup || ''}
+                                onChange={(e) => setEditedPatient({ ...editedPatient, followup: e.target.value })}
+                            />
+                        </Form.Group>
+                        {/* Add more Form.Group elements for other patient data fields */}
+                    </Form>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowEditModal(false)}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleUpdatePatient}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }

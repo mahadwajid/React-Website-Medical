@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { createBlog, deleteblog, getBlogs,} from '../Controller/Addblogs.js';
+import { createBlog, deleteblog, getBlogs, updateProduct,} from '../Controller/Addblogs.js';
 
 const router = express.Router();
 
@@ -20,5 +20,7 @@ router.post('/',upload.fields([{ name: 'image' }, { name: 'authorImage' }]), cre
 router.get('/', getBlogs);
 
 router.delete("/:id",deleteblog);
+
+router.put("/:id",updateProduct);
 
 export default router;
