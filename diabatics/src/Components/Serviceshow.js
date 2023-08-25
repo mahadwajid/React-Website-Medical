@@ -27,7 +27,7 @@ function ServiceShow() {
         {Serviceid.map(details =>
                        <div key={details._id} className="Blog-container">
                 <div className="Blog-img">
-                    <img src={`http://localhost:5000/images/${details.image}`} alt="Blog Image" className="Full-width-img" />
+                    <img src={`https://diabaticdata.onrender.com/images/${details.image}`} alt="Blog Image" className="Full-width-img" />
                 </div>
 
                 <div className="Blog-Content">
