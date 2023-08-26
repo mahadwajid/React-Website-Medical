@@ -141,7 +141,7 @@ function Showblog() {
               <td>
                 <img
                   style={{ width: '4rem', height: '5rem' }}
-                  src={`http://localhost:5000/images/${details.image}`}
+                  src={`http://localhost:3000/images/${details.image}`}
                   alt=""
                 />
               </td>

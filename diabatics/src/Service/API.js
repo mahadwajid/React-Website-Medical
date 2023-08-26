@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "http://localhost:5000"; // Replace with your actual backend API URL
+const url = "http://localhost:3000"; // Replace with your actual backend API URL
 
 export const addBlog = async (formdata) => {
     return await axios.post(`${url}/Admin/Adminblog`, formdata);
