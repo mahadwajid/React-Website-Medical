@@ -29,7 +29,7 @@ function Blog() {
           <div className="blog-image">
             <img
               style={{ width: '20rem', height: '10rem' }}
-              src={`http://localhost:3000/images/${details.image}`}
+              src={`https://clinic-data.onrender.com/images/${details.image}`}
               alt=""
             />
           </div>
