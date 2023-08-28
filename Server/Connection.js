@@ -1,15 +1,8 @@
-// import mongoose from "mongoose";    
-// import dotenv from 'dotenv';
-// import express from 'express';
-// dotenv.config();
+import mongoose from "mongoose";
+import dotenv from 'dotenv'
+dotenv.config();
 
-// const apikey=process.env.MONGODB_URL;
+const apiKey = process.env.MONGODB_URL;
 
-// const connection = mongoose.connect(apikey , {useUnifiedTopology: true, useNewUrlParser: true})
-
-// const app=express();
-// const PORT=process.env.PORT || 3000;
-
-// app.listen(PORT);
-
-// export {connection}
+const connection = mongoose.connect(apiKey, {useUnifiedTopology: true, useNewUrlParser: true})
+export {connection}

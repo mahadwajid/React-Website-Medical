@@ -10,29 +10,29 @@ import Routepatientdata from './Routes/Addpatientdata.js';
 import Routelogin from './Routes/Login.js';
 import RouteService from './Routes/Addservice.js';
 import RouteshowService from './Routes/ShowService.js';
+import {connection } from './connection.js';
 
-dotenv.config();
-
-const apikey = process.env.MONGODB_URL;
-mongoose.connect(apikey, { useUnifiedTopology: true, useNewUrlParser: true })
-  .then(() => {
-    console.log("Connection Successful");
-  })
-  .catch((error) => {
-    console.log("Connection Error", error);
-  });
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+app.listen(5000);
+
+app.use(cors());
+app.use(bodyParser.json({ extended: true}));
+app.use(bodyParser.urlencoded ({extended:true}));
+
+
+connection.then(() => {
+    console.log("Connection successful");
+})
+.catch((error) => {
+    console.log("Connection Error", error);
+});
 
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 
 app.use('/Admin/Adminblog', Createblog);
 app.use('/Admin/Showblog', Createblog);
