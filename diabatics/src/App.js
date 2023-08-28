@@ -20,15 +20,10 @@ import Whoweare from "./Components/Whoweare";
 import { Routes, Route } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 
-
-
-
 function App(){
 
   const location = useLocation();
   const showNavbar = !location.pathname.includes("/Admin");
-
-  
 
   return(
     <div>
@@ -46,9 +41,6 @@ function App(){
         <Route path="/Admin" element={<Admin />} />
 
       </Route>
-
-
-
       <Route path="/Admin/Adminblog" element={<Adminblog />} />
       <Route path="/Admin/Showblog" element={<Showblog />} />
       <Route path="/Blogshow/:id" element={<Blogshow />} />
