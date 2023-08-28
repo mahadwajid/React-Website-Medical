@@ -8,7 +8,7 @@ import Routepatientdata from './Routes/Addpatientdata.js';
 import Routelogin from './Routes/Login.js';
 import RouteService from './Routes/Addservice.js';
 import RouteshowService from './Routes/ShowService.js';
-import {connection } from './connection.js';
+import { connection } from './Connection.js';
 
 
 const app = express();
