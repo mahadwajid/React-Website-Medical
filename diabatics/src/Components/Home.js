@@ -6,9 +6,6 @@ import img4 from "./../Images/CardVision1.png";
 import img5 from "./../Images/CardMission2.png";
 import img6 from "./../Images/CardValue3.png";
 import img7 from './../Images/Banner5.png';
-import img8 from './../Images/Logo2.png';
-import img9 from './../Images/Logo3.png';
-import img10 from './../Images/Logo4.png';
 import '../Assessts/Home.css';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -127,7 +124,7 @@ function Home() {
 
 
       <div class="image-containers">
-        <img src={img7} alt="Image" />
+        <img src={img7} alt="..." />
       </div>
 
 

@@ -8,28 +8,28 @@ function Footer() {
   return (
     <footer className="footer-distributed">
       <div className="footer-left">
-        <img className="Footer-image"  src={img} />
+        <img className="Footer-image"  src={img} alt="..." />
         <p className="footer-links">
           <Link to="/">
-          <a href="#" className="link-1">
+          <a href="..." className="link-1">
             Home
           </a>
           </Link>
 
           <Link to="/Whoweare">
-          <a href="#">Who we are</a>
+          <a href="...">Who we are</a>
           </Link>
 
           <Link to="/Services">
-          <a href="#">Service</a>
+          <a href="...">Service</a>
           </Link>
 
           <Link to="/Blog">
-          <a href="#">Blog</a>
+          <a href="...">Blog</a>
           </Link>
 
           <Link to='/Contactus'>
-          <a href="#">Contact</a>
+          <a href="..">Contact</a>
           </Link>
 
         </p>
@@ -63,13 +63,13 @@ function Footer() {
       <a href="https://www.google.com/">
         <FaFacebook />
       </a>
-      <a href="#">
+      <a href="..">
         <FaTwitter />
       </a>
-      <a href="#">
+      <a href="..">
         <FaLinkedin />
       </a>
-      <a href="#">
+      <a href="..">
         <FaGithub />
       </a>
     </div>

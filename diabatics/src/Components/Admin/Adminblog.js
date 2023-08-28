@@ -1,4 +1,4 @@
-import React, { useState, useRef , useEffect } from 'react';
+import React, { useState,} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-quill/dist/quill.snow.css';
 import '../../Assessts/Adminblog.css';
@@ -18,7 +18,7 @@ function Adminblog() {
     image: null,
   });
 
-  const { title, content, publishdate, publishTime, image , author, authorImage} = details;
+  const { title, content, publishdate,  image , author, authorImage} = details;
 
   // Create a ref to store the Quill instance
   

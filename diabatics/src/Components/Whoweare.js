@@ -19,13 +19,13 @@ function Whoweare() {
                     <Breadcrumb items={breadcrumbItems} />
                     <h1>About Us</h1>
                 </div>
-                <img src={img1} className="first-div-image" alt="About Us Image" />
+                <img src={img1} className="first-div-image" alt=".." />
             </div>
 
             <div className="about-page">
                 <div className="brand-detail">
                     <span className='brand-img'>
-                        <img src={img2} alt='' />
+                        <img src={img2} alt='..' />
                     </span>
                     <span className='brand-text'>
                         <h4>Welcome</h4>

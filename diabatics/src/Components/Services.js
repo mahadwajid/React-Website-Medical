@@ -1,9 +1,6 @@
 import Breadcrumb from "./Breadcrumb";
 import '../Assessts/Services.css';
 import img1 from '../Images/Banner8.png';
-import img8 from './../Images/Logo2.png';
-import img9 from './../Images/Logo3.png';
-import img10 from './../Images/Logo4.png';
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
@@ -36,7 +33,7 @@ function Services() {
           <Breadcrumb items={breadcrumbItems} />
           <h1 style={{ color: "black" }}>Services</h1>
         </div>
-        <img src={img1} className="Ser-first-div-image" alt="About Us Image" />
+        <img src={img1} className="Ser-first-div-image" alt="..." />
       </div>
 
       <div style={{ textAlign: "center" }}>

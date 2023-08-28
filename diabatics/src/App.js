@@ -17,7 +17,7 @@ import PrivateRoutes from "./Components/ProtectedRoute";
 import Services from "./Components/Services";
 import ServiceShow from "./Components/Serviceshow";
 import Whoweare from "./Components/Whoweare";
-import { Routes, Route ,Navigate} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 
 

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { addService } from "../../Service/API";
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 function AddService() {
@@ -20,9 +19,9 @@ function AddService() {
         setServicedetails({ ...Servicedetails, [event.target.name]: event.target.files[0] });
     };
 
-    const handleContentChange = (newContent) => {
-        setServicedetails({ ...Servicedetails, content: newContent });
-    }
+    // const handleContentChange = (newContent) => {
+    //     setServicedetails({ ...Servicedetails, content: newContent });
+    // }
 
     const handleSubmit = async (event) => {
         event.preventDefault();

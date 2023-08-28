@@ -27,9 +27,9 @@ function Login() {
         }
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem('adminToken'); // Clear the token on logout
-    };
+    // const handleLogout = () => {
+    //     localStorage.removeItem('adminToken'); // Clear the token on logout
+    // };
 
     return (
    
