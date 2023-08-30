@@ -27,7 +27,7 @@ function ServiceShow() {
         {Serviceid.map(details =>
                        <div key={details._id} className="Blog-container">
                 <div className="Blog-img">
-                    <img src={`https://erin-octopus-kit.cyclic.app/images/${details.image}`} alt="..." className="Full-width-img" />
+                    <img src={`https://clinic-data.onrender.com/images/${details.image}`} alt="..." className="Full-width-img" />
                 </div>
 
                 <div className="Blog-Content">

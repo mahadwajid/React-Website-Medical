@@ -75,7 +75,7 @@ function ShowService() {
           {showService.map((details) => (
             <tr key={details._id}>
               <td>
-                <img style={{ width: '4rem', height: '5rem' }} src={`https://erin-octopus-kit.cyclic.app/images/${details.image}`} alt="" />
+                <img style={{ width: '4rem', height: '5rem' }} src={`https://clinic-data.onrender.com/images/${details.image}`} alt="" />
               </td>
               <td>{details.title}</td>
               <td>
