@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "https://clinic-data.onrender.com"; // Replace with your actual backend API URL
+const url = "https://erin-octopus-kit.cyclic.app"; // Replace with your actual backend API URL
 
 export const addBlog = async (formdata) => {
     return await axios.post(`${url}/Admin/Adminblog`, formdata);
