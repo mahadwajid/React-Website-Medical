@@ -5,6 +5,7 @@ import img1 from '../Images/Banner6.png';
 import img2 from '../Images/Banner7.png';
 import img3 from '../Images/Image13.png';
 import img4 from '../Images/Profile.jpeg';
+import img8 from "../Images/Vision.png";
 import Footer from "./Footer";
 
 function Whoweare() {
@@ -46,7 +47,7 @@ function Whoweare() {
                 </div>
                 <div className='brand-vision'>
                     <span className='vision-img'>
-                        {/* <img src= {vision} alt='' /> */}
+                        <img src={img8} alt='...' />
                     </span>
                     <span className='vision-detail'>
                         <h4>Our Vision</h4>
@@ -55,21 +56,18 @@ function Whoweare() {
                 </div>
                 <br />
                 <h2 >Meet Our Doctor</h2>
-                <div className='team-member_1'>
-                    <span className='member-1_img'>
-                        <img src= {img4} alt='...'/>
-                    </span>
-                    <span className='team-member_detail'>
-                        <h5>ASSOCIATE PROFESSOR DR WAJID AKBAR</h5>
-                        <p> M.D, Mphil, Dip.Diabetes, CHPE
-                            Memeber of American College of Physician
-                            Associate Royal college of Physician
-                            Associate Professor BKMC 
-                        
-                            
-                        </p>
-                    </span>
+
+                <div class="card-profile">
+                    <img src={img4} alt="..." />
+                    <h4>ASSOCIATE PROFESSOR</h4>
+                    <p class="title-profile">DR WAJID AKBAR</p>
+                    <p>Bacha khan Medical College</p>
+                    <p> M.D, Mphil, Dip.Diabetes, CHPE</p>
+                    <p> Memeber of American College of Physician</p>
+                    <p> Associate Royal college of Physician</p>
                 </div>
+
+
             </div>
 
 
