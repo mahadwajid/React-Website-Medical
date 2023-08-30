@@ -78,7 +78,7 @@ function Home() {
         </h2>
 
         <p style={{ textAlign: "center" }}>
-          From the first day of practice we have focus on patient centric diabetes management with medication and holistic approach. As we believe prevention is better than cure. We don't only control the sugars we act on preventing further progression of diabetes and its complications. We provide all specialty services related to diabetes under one roof.
+          From the first day of practice we have focus on patient centric diabetes and obesity management with medication and life style modification. As we believe prevention is better than cure. We don't only control the sugars we act on preventing further progression of diabetes/obesity and its complications. We provide all specialty services related to diabetes and obesity under one roof.
         </p>
         <div style={{ borderBottom: `2px solid black`, margin: "10px auto", width: "50%" }}></div>
       </div>
@@ -91,7 +91,7 @@ function Home() {
               <div className="transparent-overlay"></div>
               <div className="text-overlay">
                 <h2 style={{ fontWeight: "bold" }}>Our Vision</h2>
-                <h6>Is to cure and Prevent diabetes</h6>
+                <h6>Is to cure and Prevent diabetes/Obesity</h6>
               </div>
             </div>
           </Card>

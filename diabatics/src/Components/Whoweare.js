@@ -4,6 +4,7 @@ import Breadcrumb from "./Breadcrumb";
 import img1 from '../Images/Banner6.png';
 import img2 from '../Images/Banner7.png';
 import img3 from '../Images/Image13.png';
+import img4 from '../Images/Profile.jpeg';
 import Footer from "./Footer";
 
 function Whoweare() {
@@ -29,7 +30,7 @@ function Whoweare() {
                     </span>
                     <span className='brand-text'>
                         <h4>Welcome</h4>
-                        <p>"Welcome to Our Website: Obesity and Management Care. We're here to provide you with expert guidance on understanding and tackling obesity. Explore our resources for a healthier future."
+                        <p>"Welcome to Our Website: Diaebetes, Obesity prevention and Management Care. We're here to provide you with expert guidance on understanding and tackling Diaebtes and or obesity. Explore our resources for a healthier future."
 
                         </p>
                     </span>
@@ -53,14 +54,20 @@ function Whoweare() {
                     </span>
                 </div>
                 <br />
-                <h2>Meet Our Doctor</h2>
+                <h2 >Meet Our Doctor</h2>
                 <div className='team-member_1'>
                     <span className='member-1_img'>
-                        {/* <img src= {myimage} alt=''/> */}
+                        <img src= {img4} alt='...'/>
                     </span>
                     <span className='team-member_detail'>
-                        <h4>DR WAJID AKBAR</h4>
-                        <p>At WATCHGALLERY, we are proud to introduce our visionary founder and talented developer, ABDUL AZIZ . With a passion for watches and a deep understanding of technology, ABDUL AZIZ embarked on the journey to create a seamless online platform for watch enthusiasts worldwide.</p>
+                        <h5>ASSOCIATE PROFESSOR DR WAJID AKBAR</h5>
+                        <p> M.D, Mphil, Dip.Diabetes, CHPE
+                            Memeber of American College of Physician
+                            Associate Royal college of Physician
+                            Associate Professor BKMC 
+                        
+                            
+                        </p>
                     </span>
                 </div>
             </div>

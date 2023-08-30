@@ -45,12 +45,12 @@ function Footer() {
       </div>
       <div>
         <FaPhone />
-        <p>03009174503</p>
+        <p>03129176437</p>
       </div>
       <div>
         <FaEnvelope />
         <p>
-          <a href="mailto:support@company.com">wajidakbar123@gmail.com</a>
+          <a href="mailto:support@company.com">drwajidakbar156@gmail.com</a>
         </p>
       </div>
     </div>
@@ -60,7 +60,7 @@ function Footer() {
           <span>About the company</span>Clinic Diabetic and Obesity Care specializes in comprehensive treatments for diabetes and obesity, promoting health and well-being through expert medical care and personalized strategies.
         </p>
         <div className="footer-icons">
-      <a href="https://www.google.com/">
+      <a href="https://www.facebook.com/wajid.akbar.378">
         <FaFacebook />
       </a>
       <a href="..">
