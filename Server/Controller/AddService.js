@@ -2,36 +2,30 @@ import ServiceModel from '../Model/AddService.js';
 import cloudinary from '../cloudinaryConfig.js';
 
 export const createService = async (req, res) => {
-    const { title, Content } = req.body;
+  const { title, Content } = req.body;
 
-    try {
-        const image = req.files.image;
+  try {
+    // Use cloudinary to upload the image to Cloudinary
+    const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path);
+  
+    const newService = new ServiceModel({
+      title,
+      Content,
+      image: {
+        public_id:imageUploadResult.public_id,
+        url:imageUploadResult.secure_url
+      } 
+    });
 
-        // Specify the folder in which to store the image
-        const folderName = 'Assessts'; // Replace with the actual folder name
-        const uploadOptions = {
-            folder: folderName,
-        };
+    const savedService = await newService.save();
+    console.log(savedService);
 
-        // Use cloudinary to upload the image to Cloudinary with folder option
-        cloudinary.uploader.upload(image.tempFilePath, uploadOptions, async (error, result) => {
-            if (error) {
-                console.error(error);
-                res.status(500).json({ error: 'Failed to upload image to Cloudinary' });
-            } else {
-                console.log("Image uploaded to Cloudinary:", result);
-
-                // Continue with saving the service to the database
-                // ...
-
-                res.json({ Response: true, message: 'Added Successfully' });
-                console.log('Service added successfully');
-            }
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
+    res.json({ Response: true, message: 'Added Successfully' });
+    console.log('Service added successfully');
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 };
 
 
