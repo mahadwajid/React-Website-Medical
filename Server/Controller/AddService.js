@@ -6,25 +6,23 @@ export const createService = async (req, res) => {
 
     try {
         const image = req.files.image;
-        console.log("Image received:", image);
 
-        // Use cloudinary to upload the image to Cloudinary
-        cloudinary.uploader.upload(image.tempFilePath, async (error, result) => {
+        // Specify the folder in which to store the image
+        const folderName = 'Assessts'; // Replace with the actual folder name
+        const uploadOptions = {
+            folder: folderName,
+        };
+
+        // Use cloudinary to upload the image to Cloudinary with folder option
+        cloudinary.uploader.upload(image.tempFilePath, uploadOptions, async (error, result) => {
             if (error) {
                 console.error(error);
                 res.status(500).json({ error: 'Failed to upload image to Cloudinary' });
             } else {
-                const newService = new ServiceModel({
-                    title,
-                    Content,
-                    image: {
-                        public_id: result.public_id,
-                        url: result.secure_url
-                    }
-                });
+                console.log("Image uploaded to Cloudinary:", result);
 
-                const savedService = await newService.save();
-                console.log(savedService);
+                // Continue with saving the service to the database
+                // ...
 
                 res.json({ Response: true, message: 'Added Successfully' });
                 console.log('Service added successfully');
