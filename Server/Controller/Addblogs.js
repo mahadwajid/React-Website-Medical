@@ -11,6 +11,7 @@ export const createBlog = async (req, res) => {
   try {
     
     const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path);
+    console.log(imageUploadResult);
 
     const newBlog = new BlogModel({
       title,
