@@ -7,12 +7,14 @@ export const createService = async (req, res) => {
   try {
     // Use cloudinary to upload the image to Cloudinary
     const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path);
-    const publicId = imageUploadResult.public_id;
-
+  
     const newService = new ServiceModel({
       title,
       Content,
-      image: publicId, // Use the "public_id" as the image reference
+      image: {
+        public_id:imageUploadResult.public_id,
+        url:imageUploadResult.secure_url
+      } 
     });
 
     const savedService = await newService.save();
