@@ -10,7 +10,10 @@ export const createBlog = async (req, res) => {
 
   try {
     
-    const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path);
+    // Specify a folder for the uploaded image in Cloudinary
+    const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path, {
+      folder: 'blog-images', // Replace with the folder name you want to use
+    });
     console.log(imageUploadResult);
 
     const newBlog = new BlogModel({
