@@ -2,33 +2,30 @@ import ServiceModel from '../Model/AddService.js';
 import cloudinary from '../cloudinaryConfig.js';
 
 export const createService = async (req, res) => {
-    const { title, Content, } = req.body;
-    const imagePath = req.files['image'][0].filename;
-  
-  
-    try {
-      
+  const { title, Content } = req.body;
+
+  try {
+    // Use cloudinary to upload the image to Cloudinary
     const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path);
     const publicId = imageUploadResult.public_id;
-    console.log(publicId);
 
-    
-      const newService = new ServiceModel({
-        title,
-        Content,
-        image: publicId,
-       
-      });
-  
-       const savedProduct = await newService.save();
-       console.log(savedProduct);
-  
-       res.json({Response:true , message:'Added Successfully '});
-       console.log("Product added successfully");
-    } catch (error) {
+    const newService = new ServiceModel({
+      title,
+      Content,
+      image: publicId, // Use the "public_id" as the image reference
+    });
+
+    const savedService = await newService.save();
+    console.log(savedService);
+
+    res.json({ Response: true, message: 'Added Successfully' });
+    console.log('Service added successfully');
+  } catch (error) {
     console.log(error);
-    }
-  };
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 
   export const getService = async (req, res) => {
     try {
