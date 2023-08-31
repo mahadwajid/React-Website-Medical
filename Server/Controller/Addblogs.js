@@ -1,4 +1,5 @@
 import BlogModel from '../Model/Addblog.js';
+import cloudinary from '../cloudinaryConfig.js';
 
 // Create a new blog
 export const createBlog = async (req, res) => {
@@ -8,13 +9,15 @@ export const createBlog = async (req, res) => {
 
 
   try {
-  
+    
+    const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path);
+
     const newBlog = new BlogModel({
       title,
       author,
       content,
       publishDateTime: new Date(publishDate),
-      image: imagePath,
+      image: imageUploadResult.secure_url,
       authorImage: authorImagePath,
      
     });
