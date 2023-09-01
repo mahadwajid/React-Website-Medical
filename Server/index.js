@@ -14,10 +14,6 @@ import { connection } from './Connection.js';
 const app = express();
 
 
-// app.use(cors());
-// app.use(bodyParser.json({ extended: true}));
-// app.use(bodyParser.urlencoded ({extended:true}));
-// app.use(express.static('images'));
 
 connection.then(() => {
     console.log("Connection successful");

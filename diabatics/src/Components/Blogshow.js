@@ -27,7 +27,7 @@ function Blogshow() {
             {blogbyid.map(details =>
                            <div key={details._id} className="Blog-container">
                     <div className="Blog-img">
-                        <img src={`https://clinic-data.onrender.com/images/${details.image}`} alt="..." className="Full-width-img" />
+                        <img src={`https://diabaticdata.onrender.com/images/${details.image}`} alt="..." className="Full-width-img" />
                     </div>
 
                     <div className="Blog-Content">
@@ -37,7 +37,7 @@ function Blogshow() {
 
                     <div className="Author-container">
                         <div className="author-image">
-                            <img src={`https://clinic-data.onrender.com/images/${details.authorImage}`} alt="..." />
+                            <img src={`https://diabaticdata.onrender.com/images/${details.authorImage}`} alt="..." />
                         </div>
                         <div className="author-name">
                             <p>{details.author}</p>

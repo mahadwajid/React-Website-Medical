@@ -69,7 +69,7 @@ function Showblog() {
               <td>
                 <img
                   style={{ width: '4rem', height: '5rem' }}
-                  src={`https://clinic-data.onrender.com/images/${details.image}`}
+                  src={`https://diabaticdata.onrender.com/images/${details.image}`}
                   alt=""
                 />
               </td>
