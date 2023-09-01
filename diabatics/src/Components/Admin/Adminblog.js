@@ -31,8 +31,17 @@ function Adminblog() {
     setDetails({ ...details, content: newContent });
   };
 
-  const handleImageChange = (event) => {
-    setDetails({ ...details, [event.target.name]: event.target.files[0] });
+  const handleImageChange = async (event) => {
+    const selectedFile = event.target.files[0];
+    try {
+      if (event.target.name === 'image') {
+        setDetails({ ...details, image: selectedFile });
+      } else if (event.target.name === 'authorImage') {
+        setDetails({ ...details, authorImage: selectedFile });
+      }
+    } catch (error) {
+      console.error('Error', error);
+    }
   };
 
   const handleSubmit = async (event) => {

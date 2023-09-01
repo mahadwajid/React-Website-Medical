@@ -3,24 +3,30 @@ import cloudinary from '../cloudinaryConfig.js';
 
 // Create a new blog
 export const createBlog = async (req, res) => {
-  const { title, content, publishDate , author, } = req.body;
-  const imagePath = req.files['image'][0].filename;
-  const authorImagePath = req.files['authorImage'][0].filename;
-
+  const { title, content, publishDate , author, authorImage, image } = req.body;
 
   try {
     
-    const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path);
-    const publicId = imageUploadResult.public_id;
-    console.log(publicId);
+    const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path, {
+      folder: "blogs",
+    });
+    const authorImageUploadResult = await cloudinary.uploader.upload(req.files['authorImage'][0].path, {
+      folder: "blogs",
+    });
 
     const newBlog = new BlogModel({
       title,
       author,
       content,
       publishDateTime: new Date(publishDate),
-      image: publicId,
-      authorImage: authorImagePath,
+      authorImage: {
+        public_id: authorImageUploadResult.public_id,
+        url: authorImageUploadResult.secure_url
+      } ,
+      image: {
+        public_id: imageUploadResult.public_id,
+        url: imageUploadResult.secure_url
+      },
      
     });
 

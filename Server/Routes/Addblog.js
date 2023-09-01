@@ -13,10 +13,15 @@ const storage = multer.diskStorage({
     },
 });
 
-const upload= multer({storage : storage});
+const upload= multer({
+    storage : storage,
+    limits: {
+        fieldSize: 1024 * 1024 * 50,
+    },
+});
 
 // Routes for blogs
-router.post('/',upload.fields([{ name: 'image' }, { name: 'authorImage' }]), createBlog);
+router.post('/', upload.fields([{ name: 'image' }, { name: 'authorImage' }]), createBlog);
 router.get('/', getBlogs);
 
 router.delete("/:id",deleteblog);

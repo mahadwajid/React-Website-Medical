@@ -12,12 +12,12 @@ import { connection } from './Connection.js';
 
 
 const app = express();
-app.listen(5000);
 
-app.use(cors());
-app.use(bodyParser.json({ extended: true}));
-app.use(bodyParser.urlencoded ({extended:true}));
 
+// app.use(cors());
+// app.use(bodyParser.json({ extended: true}));
+// app.use(bodyParser.urlencoded ({extended:true}));
+// app.use(express.static('images'));
 
 connection.then(() => {
     console.log("Connection successful");
@@ -25,6 +25,8 @@ connection.then(() => {
 .catch((error) => {
     console.log("Connection Error", error);
 });
+
+app.listen(5000);
 
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));

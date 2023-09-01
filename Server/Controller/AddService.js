@@ -2,18 +2,21 @@ import ServiceModel from '../Model/AddService.js';
 import cloudinary from '../cloudinaryConfig.js';
 
 export const createService = async (req, res) => {
-  const { title, Content } = req.body;
 
+  const { title, Content, image } = req.body;
+  
   try {
     // Use cloudinary to upload the image to Cloudinary
-    const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path);
-  
+    const result = await cloudinary.uploader.upload(req.files['image'][0].path, {
+      folder: "services",
+    });
+
     const newService = new ServiceModel({
       title,
       Content,
       image: {
-        public_id:imageUploadResult.public_id,
-        url:imageUploadResult.secure_url
+        public_id: result.public_id,
+        url: result.secure_url
       } 
     });
 

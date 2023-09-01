@@ -52,6 +52,7 @@ export const getSignup = async (details) => {
   };
 
   export const addService = async (formdata) =>{
+    console.log(formdata);
     return await axios.post(`${url}/Admin/AddService`,formdata);
   }
 
