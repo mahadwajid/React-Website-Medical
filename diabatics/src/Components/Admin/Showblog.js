@@ -69,7 +69,7 @@ function Showblog() {
               <td>
                 <img
                   style={{ width: '4rem', height: '5rem' }}
-                  src={`https://diabaticdata.onrender.com/images/${details.image}`}
+                  src={details.image.url}
                   alt=""
                 />
               </td>
@@ -79,6 +79,13 @@ function Showblog() {
               </td>
               <td>{details.publishDateTime}</td>
               <td>{details.author}</td>
+              <td>
+                <img
+                  style={{ width: '4rem', height: '5rem' }}
+                  src={details.authorImage.url}
+                  alt=""
+                />
+              </td>
               <td>
                 <button onClick={() => deleteblog(details._id)}>Delete</button>
                 <button onClick={() => handleEditClick(details)}>Edit</button>

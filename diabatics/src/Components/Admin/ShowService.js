@@ -75,7 +75,7 @@ function ShowService() {
           {showService.map((details) => (
             <tr key={details._id}>
               <td>
-                <img style={{ width: '4rem', height: '5rem' }} src={`https://diabaticdata.onrender.com/images/${details.image}`} alt="" />
+                <img style={{ width: '4rem', height: '5rem' }} src={details.image.url} alt="" />
               </td>
               <td>{details.title}</td>
               <td>
