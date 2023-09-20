@@ -1,4 +1,16 @@
 /* Home.css */
+/* Add transition for opacity */
+.carousel-item {
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Adjust the duration as needed */
+}
+
+/* Class to make the carousel visible */
+.show-carousel .carousel-item {
+  opacity: 1;
+  /* Add any other styling you want when the carousel is visible */
+}
+
 .custom-carousel {
     max-width: 98vw; /* Set the maximum width of the carousel */
     max-height: 80vh; /* Set the maximum height of the carousel */
@@ -40,6 +52,17 @@
   
 
 /* ==================Cards CSS===================== */
+/* Initial styles */
+.card {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Applied to visible cards */
+.card.visible {
+  opacity: 1;
+}
+
 .cards-container {
   display: flex;
   flex-wrap: wrap;

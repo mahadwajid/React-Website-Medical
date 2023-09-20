@@ -16,11 +16,8 @@ import { Link } from "react-router-dom";
 function Home() {
 
   const [Service, setService] = useState([]);
-
   const carouselRef = useRef(null);
-
-
-
+  const [cardVisibility, setCardVisibility] = useState([false, false, false]);
   const color = '#009AEE';
 
   useEffect(() => {
@@ -34,6 +31,31 @@ function Home() {
 
     return () => clearInterval(carouselInterval);
   }, []);
+
+  useEffect(() => {
+    // Delay the transition by a few milliseconds to allow the component to render
+    setTimeout(() => {
+      carouselRef.current.classList.add('show-carousel');
+    }, 100);
+  }, []);
+
+  useEffect(() => {
+    // Use setTimeout to control when each card becomes visible
+    const timeouts = cardVisibility.map((_, index) =>
+      setTimeout(() => {
+        setCardVisibility((prevVisibility) =>
+          prevVisibility.map((value, i) => (i === index ? true : value))
+        );
+      }, 800 * index) // Adjust the delay as needed (500ms between each card)
+    );
+  
+    // Clear the timeouts when the component unmounts to avoid memory leaks
+    return () => {
+      timeouts.forEach((timeout) => clearTimeout(timeout));
+    };
+  },[]);
+  
+
 
 
 
@@ -50,6 +72,11 @@ function Home() {
 
   return (
     <div>
+       <div
+      id="carouselExample"
+      className="carousel slide custom-carousel"
+      ref={carouselRef}
+    ></div>
       <div id="carouselExample" className="carousel slide custom-carousel" ref={carouselRef}>
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -78,7 +105,7 @@ function Home() {
 
       <div>
         <CardGroup className="cards-container">
-          <Card className="card">
+          <Card className={`card ${cardVisibility[0] ? 'visible' : ''}`}>
             <div className="image-container">
               <Card.Img variant="top" src={img4} className="card-image" />
               <div className="transparent-overlay"></div>
@@ -88,7 +115,7 @@ function Home() {
               </div>
             </div>
           </Card>
-          <Card>
+          <Card className={`card ${cardVisibility[1] ? 'visible' : ''}`}>
             <div className="image-container">
               <Card.Img variant="top" src={img5} className="card-image" />
               <div className="transparent-overlay"></div>
@@ -99,7 +126,7 @@ function Home() {
               </div>
             </div>
           </Card>
-          <Card>
+          <Card className={`card ${cardVisibility[2] ? 'visible' : ''}`}>
             <div className="image-container">
               <Card.Img variant="top" src={img6} className="card-image" />
               <div className="transparent-overlay"></div>
