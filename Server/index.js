@@ -9,6 +9,7 @@ import Routelogin from './Routes/Login.js';
 import RouteService from './Routes/Addservice.js';
 import RouteshowService from './Routes/ShowService.js';
 import { connection } from './Connection.js';
+import compression from 'compression'; 
 
 
 const app = express();
@@ -28,6 +29,7 @@ app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(compression());
 
 
 app.use('/Admin/Adminblog', Createblog);
