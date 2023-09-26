@@ -34,7 +34,7 @@ export const createService = async (req, res) => {
 
   export const getService = async (req, res) => {
     try {
-      const Service = await ServiceModel.findMany();
+      const Service = await ServiceModel.find();
       res.status(200).json(Service);
       
     } catch (error) {
