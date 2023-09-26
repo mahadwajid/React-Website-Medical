@@ -21,6 +21,10 @@ function Home() {
   const color = '#009AEE';
 
   useEffect(() => {
+    getServicedetails();
+  }, []);
+
+  useEffect(() => {
     const carouselInterval = setInterval(() => {
       const currentActiveItem = carouselRef.current.querySelector(".carousel-item.active");
       const nextItem = currentActiveItem.nextElementSibling || carouselRef.current.querySelector(".carousel-item");
@@ -55,14 +59,6 @@ function Home() {
     };
   },[]);
   
-
-
-
-
-  useEffect(() => {
-    getServicedetails();
-  }, []);
-
 
   const getServicedetails = async () => {
     const result = await getService();
