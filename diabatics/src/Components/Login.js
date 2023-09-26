@@ -26,16 +26,8 @@ function Login() {
             console.error('Login failed', error);
         }
     };
-
-    // const handleLogout = () => {
-    //     localStorage.removeItem('adminToken'); // Clear the token on logout
-    // };
-
     return (
-   
-
-
-        <div className='Back-login-container'>
+           <div className='Back-login-container'>
 
             <div className="form-container">
                 <p className="title">Login</p>

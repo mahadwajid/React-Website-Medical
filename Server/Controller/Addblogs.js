@@ -43,7 +43,7 @@ export const createBlog = async (req, res) => {
 // Get all blogs
 export const getBlogs = async (req, res) => {
   try {
-    const blogs = await BlogModel.find();
+    const blogs = await BlogModel.findMany();
     res.status(200).json(blogs);
     
   } catch (error) {
