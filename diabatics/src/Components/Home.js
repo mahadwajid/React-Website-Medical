@@ -25,20 +25,25 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    // Set up carousel interval
     const carouselInterval = setInterval(() => {
       const currentActiveItem = carouselRef.current.querySelector(".carousel-item.active");
       const nextItem = currentActiveItem.nextElementSibling || carouselRef.current.querySelector(".carousel-item");
-  
+
       currentActiveItem.classList.remove("active");
       nextItem.classList.add("active");
     }, 8000);
-  
+
+    return () => clearInterval(carouselInterval);
+  }, []);
+
+  useEffect(() => {
     // Delay the transition by a few milliseconds to allow the component to render
     setTimeout(() => {
       carouselRef.current.classList.add('show-carousel');
     }, 100);
-  
+  }, []);
+
+  useEffect(() => {
     // Use setTimeout to control when each card becomes visible
     const timeouts = cardVisibility.map((_, index) =>
       setTimeout(() => {
@@ -48,13 +53,11 @@ function Home() {
       }, 800 * index) // Adjust the delay as needed (500ms between each card)
     );
   
-    // Clear the timeouts and carousel interval when the component unmounts to avoid memory leaks
+    // Clear the timeouts when the component unmounts to avoid memory leaks
     return () => {
-      clearInterval(carouselInterval);
       timeouts.forEach((timeout) => clearTimeout(timeout));
     };
-  }, [carouselRef, cardVisibility]);
-  
+  },[]);
   
 
   const getServicedetails = async () => {
