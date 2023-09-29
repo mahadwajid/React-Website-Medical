@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import img from "./../Images/Banner1.png";
-import img2 from "./../Images/Banner2.png";
-import img3 from "./../Images/Banner3.png";
-import img4 from "./../Images/CardVision1.png";
-import img5 from "./../Images/CardMission2.png";
-import img6 from "./../Images/CardValue3.png";
-import img7 from './../Images/Banner5.png';
+import img from "./../Images/Banner1.webp";
+import img2 from "./../Images/Banner2.webp";
+import img3 from "./../Images/Banner3.webp";
+import img4 from "./../Images/CardVision1.webp";
+import img5 from "./../Images/CardMission2.webp";
+import img6 from "./../Images/CardValue3.webp";
+import img7 from './../Images/Banner5.webp';
 import '../Assessts/Home.css';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';

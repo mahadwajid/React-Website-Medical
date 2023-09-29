@@ -1,7 +1,7 @@
 import React from "react";
 import '../Assessts/Footer.css';
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub ,FaMapMarker, FaPhone, FaEnvelope} from 'react-icons/fa';
-import img from '../Images/Image5.png';
+import img from '../Images/Image5.webp';
 import { Link } from "react-router-dom";
 
 function Footer() {

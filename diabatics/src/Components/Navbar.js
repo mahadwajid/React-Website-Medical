@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './../Assessts/Navbar.css';
-import image from '../Images/Image5.png';
+import image from '../Images/Image5.webp';
 import { Link, NavLink } from 'react-router-dom';
 import React, { useState } from 'react';
 import UserProfileModal from './UserprofileModel'; 
