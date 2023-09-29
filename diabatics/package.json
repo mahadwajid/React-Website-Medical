@@ -2,7 +2,7 @@
   "name": "diabatics",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://wild-cummerbund-newt.cyclic.cloud/",
+  "proxy": "https://react-website-medical-dzsh.vercel.app/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",
     "@testing-library/jest-dom": "^5.17.0",
