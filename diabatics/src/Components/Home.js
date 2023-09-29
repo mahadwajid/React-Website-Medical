@@ -76,13 +76,13 @@ function Home() {
       <div id="carouselExample" className="carousel slide custom-carousel" ref={carouselRef}>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={img} className="d-block w-100" alt="..." />
+            <img src={img} className="d-block w-100" alt="..." loading="eager" />
           </div>
           <div className="carousel-item">
-            <img src={img2} className="d-block w-100" alt="..." />
+            <img src={img2} className="d-block w-100" alt="..." loading="eager" />
           </div>
           <div className="carousel-item">
-            <img src={img3} className="d-block w-100" alt="..." />
+            <img src={img3} className="d-block w-100" alt="..." loading="eager" />
           </div>
         </div>
   
@@ -103,7 +103,7 @@ function Home() {
         <CardGroup className="cards-container">
           <Card className={`card ${cardVisibility[0] ? 'visible' : ''}`}>
             <div className="image-container">
-              <Card.Img variant="top" src={img4} className="card-image" />
+              <Card.Img variant="top" src={img4} className="card-image" loading="eager" />
               <div className="transparent-overlay"></div>
               <div className="text-overlay">
                 <h2 style={{ fontWeight: "bold" }}>Our Vision</h2>
@@ -113,7 +113,7 @@ function Home() {
           </Card>
           <Card className={`card ${cardVisibility[1] ? 'visible' : ''}`}>
             <div className="image-container">
-              <Card.Img variant="top" src={img5} className="card-image" />
+              <Card.Img variant="top" src={img5} className="card-image" loading="eager" />
               <div className="transparent-overlay"></div>
               <div className="text-overlay">
                 <br></br>
@@ -124,7 +124,7 @@ function Home() {
           </Card>
           <Card className={`card ${cardVisibility[2] ? 'visible' : ''}`}>
             <div className="image-container">
-              <Card.Img variant="top" src={img6} className="card-image" />
+              <Card.Img variant="top" src={img6} className="card-image" loading="eager" />
               <div className="transparent-overlay"></div>
               <div className="text-overlay">
                 <br></br>
@@ -140,7 +140,7 @@ function Home() {
 
 
       <div class="image-containers">
-        <img src={img7} alt="..." />
+        <img src={img7} alt="..."  loading="eager"/>
       </div>
 
 
@@ -158,7 +158,7 @@ function Home() {
           
           <div className="card-1" key={details._id}>
             <div class="icon-wrapper">
-              <img src={details.image.url} alt="Icon" />
+              <img src={details.image.url} alt="Icon" loading="eager"  />
             </div>
             <div className="blog-content truncate">
               <h3>{details.title}</h3>
