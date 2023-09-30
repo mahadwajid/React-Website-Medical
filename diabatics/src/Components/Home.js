@@ -1,17 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
-import img from "./../Images/Banner1.webp";
-import img2 from "./../Images/Banner2.webp";
-import img3 from "./../Images/Banner3.webp";
-import img4 from "./../Images/CardVision1.webp";
-import img5 from "./../Images/CardMission2.webp";
-import img6 from "./../Images/CardValue3.webp";
-import img7 from './../Images/Banner5.webp';
+import React, { useEffect, useRef, useState, lazy, Suspense } from "react";
+import img from "./../Images/Banner1.jpg";
+import img2 from "./../Images/Banner2.jpg";
+import img3 from "./../Images/Banner3.jpg";
+import img4 from "./../Images/CardVision1.jpg";
+import img5 from "./../Images/CardMission2.jpg";
+import img6 from "./../Images/CardValue3.jpg";
+import img7 from './../Images/Banner5.jpg';
 import '../Assessts/Home.css';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Footer from "./Footer";
 import { getService } from '../Service/API';
 import { Link } from "react-router-dom";
+
+const LazyImage = lazy(() => import("./LazyImage"));
 
 function Home() {
 
@@ -73,20 +75,25 @@ function Home() {
       className="carousel slide custom-carousel"
       ref={carouselRef}
     ></div>
-      <div id="carouselExample" className="carousel slide custom-carousel" ref={carouselRef}>
+       <div id="carouselExample" className="carousel slide custom-carousel" ref={carouselRef}>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={img} className="d-block w-100" alt="..." loading="eager" />
+            <Suspense fallback={<div>Loading...</div>}>
+              <LazyImage src={img} alt="..." />
+            </Suspense>
           </div>
           <div className="carousel-item">
-            <img src={img2} className="d-block w-100" alt="..." loading="eager" />
+            <Suspense fallback={<div>Loading...</div>}>
+              <LazyImage src={img2} alt="..." />
+            </Suspense>
           </div>
           <div className="carousel-item">
-            <img src={img3} className="d-block w-100" alt="..." loading="eager" />
+            <Suspense fallback={<div>Loading...</div>}>
+              <LazyImage src={img3} alt="..." />
+            </Suspense>
           </div>
         </div>
-  
-      </div>
+        </div>
 
       <div style={{ margin: "20px 0", padding: "0 10px" }}>
         <h2 style={{ textAlign: "center", color, fontWeight: "bold" }}>

@@ -1,6 +1,6 @@
 import Breadcrumb from "./Breadcrumb";
 import '../Assessts/Services.css';
-import img1 from '../Images/Banner8.webp';
+import img1 from '../Images/Banner8.jpg';
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';

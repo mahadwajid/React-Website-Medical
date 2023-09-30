@@ -1,11 +1,11 @@
 import React from "react";
 import '../Assessts/Whoweare.css';
 import Breadcrumb from "./Breadcrumb";
-import img1 from '../Images/Banner6.webp';
-import img2 from '../Images/Banner7.webp';
-import img3 from '../Images/Image13.png';
-import img4 from '../Images/Profile.webp';
-import img8 from "../Images/Vision.webp";
+import img1 from '../Images/Banner6.jpg';
+import img2 from '../Images/Banner7.jpg';
+import img3 from '../Images/Image13.jpg';
+import img4 from '../Images/Profile.jpg';
+import img8 from "../Images/Vision.jpg";
 import Footer from "./Footer";
 
 function Whoweare() {
