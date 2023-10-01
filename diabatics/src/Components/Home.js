@@ -12,6 +12,8 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Footer from "./Footer";
 import { getService } from '../Service/API';
 import { Link } from "react-router-dom";
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
+
 
 const LazyImage = lazy(() => import("./LazyImage"));
 
@@ -21,6 +23,7 @@ function Home() {
   const carouselRef = useRef(null);
   const [cardVisibility, setCardVisibility] = useState([false, false, false]);
   const color = '#009AEE';
+  const whatsappURL = `https://wa.me/923129176437`;
 
   useEffect(() => {
     getServicedetails();
@@ -177,6 +180,14 @@ function Home() {
       </section>
       </Link>
       <br />
+      <FloatingWhatsApp
+        // countryCode="92"
+        // phone="3158829986" 
+        phoneNumber={whatsappURL}
+        accountName="Assistant"
+        message="Hello! How can I assist you?" // Replace with your default message
+        avatar="https://images.news18.com/ibnlive/uploads/2021/09/whatsapp-1.jpg"
+      />
       <Footer />
     </div>
   );
