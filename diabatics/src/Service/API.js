@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "https://server-data-e66e36a2945c.herokuapp.com/"; // Replace with your actual backend API URL
+const url = "https://main--luminous-sorbet-3979f6.netlify.app/"; // Replace with your actual backend API URL
 
 export const addBlog = async (formdata) => {
     return await axios.post(`${url}/Admin/Adminblog`, formdata);
