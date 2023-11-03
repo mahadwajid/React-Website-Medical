@@ -3,45 +3,44 @@ import cloudinary from '../cloudinaryConfig.js';
 
 // Create a new blog
 export const createBlog = async (req, res) => {
-  const { title, content, publishDate , author, authorImage, image } = req.body;
+const { title, content, publishDate, author, authorImage, image } = req.body;
 
-  try {
-     
-    await execSync('sudo chmod 777 blogs');
+try {
+await execSync('sudo chmod 777 blogs');
 
-    const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path, {
-      folder: "blogs",
-    });
-    const authorImageUploadResult = await cloudinary.uploader.upload(req.files['authorImage'][0].path, {
-      folder: "blogs",
-    });
+const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path, {
+  folder: "blogs",
+});
+const authorImageUploadResult = await cloudinary.uploader.upload(req.files['authorImage'][0].path, {
+  folder: "blogs",
+});
 
-    const newBlog = new BlogModel({
-      title,
-      author,
-      content,
-      publishDateTime: new Date(publishDate),
-      authorImage: {
-        public_id: authorImageUploadResult.public_id,
-        url: authorImageUploadResult.secure_url
-      } ,
-      image: {
-        public_id: imageUploadResult.public_id,
-        url: imageUploadResult.secure_url
-      },
-     
-    });
+const newBlog = new BlogModel({
+  title,
+  author,
+  content,
+  publishDateTime: new Date(publishDate),
+  authorImage: {
+    public_id: authorImageUploadResult.public_id,
+    url: authorImageUploadResult.secure_url
+  },
+  image: {
+    public_id: imageUploadResult.public_id,
+    url: imageUploadResult.secure_url
+  },
+});
 
-     const savedProduct = await newBlog.save();
-     console.log(savedProduct);
+const savedProduct = await newBlog.save();
+console.log(savedProduct);
 
-     res.json({Response:true , message:'Added Successfully '});
-     console.log("Product added successfully");
-  } catch (error) {
-  console.log(error);
-  }
+res.json({ Response: true, message: 'Added Successfully ' });
+console.log("Product added successfully");
+} catch (error) {
+console.log(error);
+} finally {
+await execSync('sudo chmod 755 blogs');
+}
 };
-
 
 // Get all blogs
 export const getBlogs = async (req, res) => {
