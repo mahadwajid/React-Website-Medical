@@ -8,10 +8,10 @@ export const createBlog = async (req, res) => {
   try {
     
     const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path, {
-      folder: "blogs",
+      folder: "images",
     });
     const authorImageUploadResult = await cloudinary.uploader.upload(req.files['authorImage'][0].path, {
-      folder: "blogs",
+      folder: "images",
     });
 
     const newBlog = new BlogModel({
