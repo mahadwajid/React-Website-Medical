@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "https://wild-cummerbund-newt.cyclic.cloud/"; // Replace with your actual backend API URL
+const url = "https://react-website-medical-byov.vercel.app/"; // Replace with your actual backend API URL
 
 export const addBlog = async (formdata) => {
     return await axios.post(`${url}/Admin/Adminblog`, formdata);
