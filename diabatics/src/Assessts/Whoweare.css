@@ -1,342 +1,237 @@
-/* Default styles for larger devices */
-
-/* First Section */
-.first-div {
-  position: relative;
-  width: 100vw;
-  height: 30vh;
-  overflow: hidden;
+/* .div-1{
+  background-color: #edf2f7;
 }
+@media (max-width:786px){
+   .div-1{
+    max-height: auto;
+   }
+} */
 
-.first-text-container {
+
+/* ================First div ==================== */
+.First-About{
+  width: 100%;
+  height: 45vh;
+}
+.First-Image{
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  color: white;
+  top: 15%;
+  left: 10%;
+  width: 26%;
+  height: 40vh;
+  border: 1px solid white;
+  border-radius: 50%; 
 }
-
-.first-div-image {
-  width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  margin: 0;
-}
-
-
-
-/* Styles for small devices (e.g., smartphones) */
-@media screen and (max-width: 768px) {
-  /* First Section */
-  .first-div {
-    height: 50vh;
-  }
-
-  .first-text-container {
-    padding: 5px;
-  }
-
-  .first-div-image {
-    max-height: 50vh;
-  }
-
-  /* Second Section */
-  .Image-Div {
-    flex: 1;
-    padding: 15px;
-  }
-
-  .second-div-image {
-    max-height: 50vh; /* Adjust as needed */
-  }
-
-  /* Right Section */
-  .Right-div {
-    flex: 1;
-    padding: 5px;
-  }
-
-  .Right-div h2 {
-    font-size: 20px;
-  }
-
-  .Right-div p {
-    font-size: 14px;
-    line-height: 1.4;
-  }
-}
-
-
-
-
-
-/* ==================ABOUT US============== */
-.about-page{
-  width: 100%;
-  position: relative;
-  font-family: 'Poppins', sans-serif;
-}
-/* Base styles for larger devices */
-.brand-detail {
-  display: flex;
-  flex-direction: row;
-  gap: 5rem;
-  position: relative;
-  width: 60%;
-  height: 35vh;
-  background-color: #fff;
-  margin-top: 3rem;
-  margin-left: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-}
-
-/* Base styles for the brand image */
-.brand-img {
+.First-Image img{
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
-  border-radius: 1rem;
+  border-radius: 50%;
+  border: 10px solid white;
 }
-
-.brand-img img {
-  width: 100%;
-  height: 100%;
-}
-
-/* Base styles for the brand text */
-.brand-text {
+.Second-div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
+  position: absolute;
+  right: 20%;
+  width: 40%;
+  height: 50vh;
 }
 
-.brand-text h4 {
-  font-weight: 600;
+.Second-div h1 {
+  margin-top: 13vh;
+  border-bottom: 5px solid black; 
+  width: 100%;
+  padding-bottom: 10px;
+  font-weight: bolder;
 }
 
-/* Media query for smaller devices */
-@media (max-width: 768px) {
-  .brand-detail {
-    flex-direction: column; /* Stack items on small screens */
-    gap: 2rem; /* Reduce the gap between items for small screens */
-    width: 90%; /* Adjust the width for small screens */
-    margin: 3rem auto; /* Center the section */
-    height: auto; /* Allow the height to adjust based on content */
+/* @media (max-width:786px){
+  .First-Image {
+    top: 20%;
+    left: 20%;
+    width: 50%;
+    height: 30vh;
   }
 
-  .brand-img {
-    height: 200px; /* Set a fixed height for the image on small screens */
+  .Second-div {
+    bottom:15%;
+    right: 5%;
+    width: 90%;
   }
+} */
+
+/* ================= 2nd-Diu====================================== */
+
+.Second-About{
+  display: flex;
+  align-items: last baseline;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: 45vh;
+}
+.Second-Image{
+  position: relative;
+  right: 19%;
+  width: 26%;
+  height: 40vh;
+  border: 2px solid white; 
+  border-radius: 50%;
   
-  /* Adjust other styles as needed for smaller screens */
+}
+.img-2{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid white;
 }
 
-
-
-/* Base styles for larger devices */
-.brand-story {
-  display: flex;
-  flex-direction: row;
-  gap: 5rem;
-  position: relative;
-  width: 60%;
-  height: 35vh;
-  background-color: #fff;
-  margin-top: 3rem;
-  margin-left: 39%;
-  border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+.Sec-div{
+  position: absolute;
+  right: 49%;
+  width: 40%;
+  height: 40vh;
+}
+.Sec-div h1{
+  margin-top: 8vh;
+  border-bottom: 5px solid black; 
+  width: 100%;
+  padding-bottom: 10px; 
+  font-weight: bolder; 
 }
 
-/* Base styles for the story detail */
-.story-detail {
+/* @media (max-width:786px){
+  .Second-Image {
+    right: 28%;
+    top: 20%;
+    width: 50%;
+    height: 30vh;
+  }
+
+  .Sec-div {
+    bottom:-50%;
+    right: 5%;
+    width: 90%;
+  }
+} */
+
+
+/* ==================================================== */
+
+.Third-About{
   display: flex;
-  flex-direction: column;
+  align-items: last baseline;
+  width: 100%;
+  height: 50vh;
+
+}
+
+.Third-Image{
+  position: absolute;
+  left: 10%;
+  width: 26%;
+  height: 40vh;
+  border: 1px solid white;
+  border-radius: 50%; 
+
+}
+.Third-Image img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid white;
+}
+
+.Third-div{
+  position: absolute;
+  right: 20%;
+  width: 40%;
+  height: 50vh;
+
+}
+.Third-div h1{
+  margin-top: 14vh;
+  border-bottom: 5px solid black;
+  width: 100%;
+  padding-bottom: 10px; 
+  font-weight: bolder; 
+}
+
+/* @media (max-width:786px){
+  .Third-Image {
+    right: 50%;
+    top: 160%;
+    width: 50%;
+    height: 30vh;
+  }
+
+  .Third-div {
+    right: 5%;
+    width: 90%;
+    top:120%;
+  }
+} */
+
+
+
+/* ==================================================== */
+.Card-div{
+  display: flex;
   justify-content: center;
-  align-items: center;
-  margin-left: 1rem;
+  align-items: last baseline;
+  width: 100%;
+  height: 10vh;
+}
+.Card-div h1{
+   text-align: center;
+  font-weight: bold;
+  border-bottom: 5px solid black; 
+  width: 24%;
+  padding-bottom: 10px;
+  font-weight: bolder; 
 }
 
-.story-detail h4 {
-  font-weight: 600;
-}
+.Profile-div{
+  margin-top: 2%;
+  width: 100%;
+  height: 40vh;
 
-/* Base styles for the story image */
-.story-img {
-  width: 60rem;
-  height: 100%;
 }
-
-.story-img img {
+.ProfileImage-div{
+  position: absolute;
+  left: 10%;
+  width: 26%;
+  height: 40vh;
+  border: 1px solid black;
+  border-radius: 50%; 
+}
+.ProfileImage-div img{
   width: 100%;
   height: 100%;
-  border-radius: 1rem;
+  border-radius: 50%;
+  border: 10px solid white;
+}
+.Text-div{
+  position: absolute;
+  right: 20%;
+  width: 40%;
+  height: 50vh;
+ 
+
 }
 
-/* Media query for smaller devices */
-@media (max-width: 768px) {
-  .brand-story {
-    flex-direction: column; /* Stack items on small screens */
-    gap: 2rem; /* Reduce the gap between items for small screens */
-    width: 90%; /* Adjust the width for small screens */
-    margin: 3rem auto; /* Center the section */
-    height: auto; /* Allow the height to adjust based on content */
-  }
-
-  .story-img {
-    width: 100%; /* Set full width for the image on small screens */
-    height: 200px; /* Set a fixed height for the image on small screens */
-  }
-
-  /* Adjust other styles as needed for smaller screens */
+.Text-div h2,
+.Text-div h3 {
+  margin-top: 25px;
+  font-weight: bold;
 }
-
-
-
-
-/* Base styles for larger devices */
-.brand-vision {
-  display: flex;
-  flex-direction: row;
-  gap: 5rem;
-  position: relative;
+.Text-div h3{
+  border-bottom: 5px solid black; 
   width: 60%;
-  height: 35vh;
-  background-color: #fff;
-  margin-top: 3rem;
-  margin-left: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  padding-bottom: 10px;
+  margin-top: -5px;
+}
+.Text-div p {
+  font-weight: bold;
+  margin-bottom: 5px; 
 }
 
-/* Base styles for the vision detail */
-.vision-detail {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-}
-
-.vision-detail h4 {
-  font-weight: 600;
-}
-
-/* Base styles for the vision image */
-.vision-img {
-  width: 60rem;
-  height: 100%;
-}
-
-.vision-img img {
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-}
-
-/* Media query for smaller devices */
-@media (max-width: 768px) {
-  .brand-vision {
-    flex-direction: column; /* Stack items on small screens */
-    gap: 2rem; /* Reduce the gap between items for small screens */
-    width: 90%; /* Adjust the width for small screens */
-    margin: 3rem auto; /* Center the section */
-    height: auto; /* Allow the height to adjust based on content */
-  }
-
-  .vision-img {
-    width: 100%; /* Set full width for the image on small screens */
-    height: 200px; /* Set a fixed height for the image on small screens */
-  }
-
-  /* Adjust other styles as needed for smaller screens */
-}
-
-
-
-/* Base styles for larger devices */
-.team-member_1 {
-  display: flex;
-  flex-direction: row;
-  gap: 5rem;
-  position: relative;
-  width: 60%;
-  height: 35vh;
-  background-color: #fff;
-  margin-top: 3rem;
-  margin-left: 39%;
-  border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-}
-
-/* Base styles for the team member image */
-.member-1_img {
-  width: 60rem;
-  height: 100%;
-}
-
-.member-1_img img {
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-}
-
-/* Base styles for the team member detail */
-.team-member_detail {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-}
-
-.team-member_detail h4 {
-  font-weight: 600;
-}
-
-/* Base styles for the h2 element */
-.about-page h2 {
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-left: 40%;
-}
-
-/* Media query for smaller devices */
-@media (max-width: 768px) {
-  .team-member_1 {
-    flex-direction: column; /* Stack items on small screens */
-    gap: 2rem; /* Reduce the gap between items for small screens */
-    width: 90%; /* Adjust the width for small screens */
-    margin: 3rem auto; /* Center the section */
-    height: auto; /* Allow the height to adjust based on content */
-  }
-
-  .member-1_img {
-    width: 100%; /* Set full width for the image on small screens */
-    height: 200px; /* Set a fixed height for the image on small screens */
-  }
-
-  /* Adjust other styles as needed for smaller screens */
-}
-
-
-.card-profile {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-}
-
-.title-profile {
-  color: grey;
-  font-size: 18px;
-}
-
-.card-profile img {
-  width: 100%;
-  max-height: 300px; /* Adjust the height as needed */
-}
