@@ -7,13 +7,13 @@ export const createBlog = async (req, res) => {
 
   try {
      
-    await execSync('sudo chmod 777 blogs ');
+    // await execSync('sudo chmod 777 blogs ');
 
     const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path, {
-      folder: "blogs",
+      folder: "Home",
     });
     const authorImageUploadResult = await cloudinary.uploader.upload(req.files['authorImage'][0].path, {
-      folder: "blogs",
+      folder: "Home",
     });
 
     const newBlog = new BlogModel({
