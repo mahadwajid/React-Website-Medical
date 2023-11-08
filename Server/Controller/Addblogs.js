@@ -14,7 +14,7 @@ AWS.config.update({
 });
 
 const s3 = new AWS.S3();
-const s3BucketName = 'cyclic-wild-cummerbund-newt-ca-central-1'; 
+const s3BucketName = 'cyclic-wild-cummerbund-newt-ca-central-1';
 
 const uploadS3 = multer({
   storage: multerS3({
@@ -24,17 +24,19 @@ const uploadS3 = multer({
     acl: 'public-read',
     key: function (req, file, cb) {
       cb(null, 'blogs/' + Date.now() + '-' + file.originalname);
-    }
-  })
+    },
+  }),
 });
 
 export const createBlog = uploadS3.fields([{ name: 'image', maxCount: 1 }, { name: 'authorImage', maxCount: 1 }], async (req, res) => {
   const { title, content, publishDate, author } = req.body;
 
   try {
-    // Get image URLs from request files
-    const imageUrl = req.files['image'][0].location;
-    const authorImageUrl = req.files['authorImage'][0].location;
+    // Upload images to S3 and retrieve publicly accessible URLs
+    const imagePromise = uploadToS3(req.files['image'][0]);
+    const authorImagePromise = uploadToS3(req.files['authorImage'][0]);
+
+    const [imageUrl, authorImageUrl] = await Promise.all([imagePromise, authorImagePromise]);
 
     // Create new blog post
     const newBlog = new BlogModel({
@@ -43,11 +45,11 @@ export const createBlog = uploadS3.fields([{ name: 'image', maxCount: 1 }, { nam
       content,
       publishDateTime: new Date(publishDate),
       authorImage: {
-        url: authorImageUrl
+        url: authorImageUrl,
       },
       image: {
-        url: imageUrl
-      }
+        url: imageUrl,
+      },
     });
 
     // Save the blog post to the database
@@ -55,13 +57,30 @@ export const createBlog = uploadS3.fields([{ name: 'image', maxCount: 1 }, { nam
     console.log(savedBlog);
 
     // Send success response
-    res.json({ Response: true, message: 'Added Successfully ' });
+    res.json({ Response: true, message: 'Added Successfully' });
     console.log('Blog added successfully');
   } catch (error) {
     console.error(error);
-    res.status(500).json({ Response: false, message: 'Internal Server Error' });
+    if (error.code === 'AccessDenied') {
+      res.status(401).json({ Response: false, message: 'Unauthorized access to S3' });
+    } else {
+      res.status(500).json({ Response: false, message: 'Internal Server Error' });
+    }
   }
 });
+
+async function uploadToS3(file) {
+  const params = {
+    Bucket: s3BucketName,
+    Key: file.originalname,
+    Body: file.buffer,
+  };
+
+  await s3.upload(params).promise();
+  const url = await s3.getSignedUrl('getObject', { Bucket: s3BucketName, Key: file.originalname });
+  return url;
+}
+
 
 
 
