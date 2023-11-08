@@ -1,8 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-// import AWS from 'aws-sdk';
-// import dotenv from 'dotenv';
 import Createblog from './Routes/Addblog.js';
 import blog from './Routes/Addblog.js';
 import Routeblogshow from './Routes/Showblog.js';
@@ -11,17 +9,7 @@ import Routelogin from './Routes/Login.js';
 import RouteService from './Routes/Addservice.js';
 import RouteshowService from './Routes/ShowService.js';
 import { connection } from './Connection.js';
-
-// dotenv.config();
-
 const app = express();
-
-// AWS.config.update({
-//   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-//   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-//   sessionToken: process.env.AWS_SESSION_TOKEN,
-//   region: process.env.AWS_REGION
-// });
 
 connection.then(() => {
   console.log("Connection successful");
