@@ -1,6 +1,8 @@
 import express from 'express';
-import bodyParser from 'body-parser';   
+import bodyParser from 'body-parser';
 import cors from 'cors';
+// import AWS from 'aws-sdk';
+// import dotenv from 'dotenv';
 import Createblog from './Routes/Addblog.js';
 import blog from './Routes/Addblog.js';
 import Routeblogshow from './Routes/Showblog.js';
@@ -10,16 +12,21 @@ import RouteService from './Routes/Addservice.js';
 import RouteshowService from './Routes/ShowService.js';
 import { connection } from './Connection.js';
 
+// dotenv.config();
 
 const app = express();
 
-
+// AWS.config.update({
+//   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+//   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+//   sessionToken: process.env.AWS_SESSION_TOKEN,
+//   region: process.env.AWS_REGION
+// });
 
 connection.then(() => {
-    console.log("Connection successful");
-})
-.catch((error) => {
-    console.log("Connection Error", error);
+  console.log("Connection successful");
+}).catch((error) => {
+  console.log("Connection Error", error);
 });
 
 app.listen(5000);
@@ -28,7 +35,6 @@ app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
 
 app.use('/Admin/Adminblog', Createblog);
 app.use('/Admin/Showblog', Createblog);
