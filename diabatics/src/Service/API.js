@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const url = "https://expensive-moth-jodhpurs.cyclic.app"; // Replace with your actual backend API URL
-
+// const url = "https://expensive-moth-jodhpurs.cyclic.app"; 
+const url = "http://localhost:5000"; // Replace with your actual backend API URL
 export const addBlog = async (formdata) => {
     return await axios.post(`${url}/Admin/Adminblog`, formdata);
   
