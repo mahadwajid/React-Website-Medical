@@ -1,15 +1,14 @@
 import BlogModel from '../Model/Addblog.js';
 import cloudinary from '../cloudinaryConfig.js';
 
-// Create a new blog
 export const createBlog = async (req, res) => {
-  const { title, content, publishDate , author, authorImage, image } = req.body;
+  const { title, content, publishDate, author, authorImage, image } = req.body;
 
   try {
-     
     const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path, {
       folder: "blogs",
     });
+
     const authorImageUploadResult = await cloudinary.uploader.upload(req.files['authorImage'][0].path, {
       folder: "blogs",
     });
@@ -22,23 +21,24 @@ export const createBlog = async (req, res) => {
       authorImage: {
         public_id: authorImageUploadResult.public_id,
         url: authorImageUploadResult.secure_url
-      } ,
+      },
       image: {
         public_id: imageUploadResult.public_id,
         url: imageUploadResult.secure_url
       },
-     
     });
 
-     const savedProduct = await newBlog.save();
-     console.log(savedProduct);
+    const savedProduct = await newBlog.save();
+    console.log(savedProduct);
 
-     res.json({Response:true , message:'Added Successfully '});
-     console.log("Product added successfully");
+    res.json({ Response: true, message: 'Added Successfully ' });
+    console.log("Product added successfully");
   } catch (error) {
-  console.log(error);
+    console.log(error);
+    res.status(500).json({ Response: false, message: 'Internal Server Error' });
   }
 };
+
 
 // Get all blogs
 export const getBlogs = async (req, res) => {
