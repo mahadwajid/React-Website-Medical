@@ -1,34 +1,52 @@
 import ServiceModel from '../Model/AddService.js';
 import cloudinary from '../cloudinaryConfig.js';
+import AWS from 'aws-sdk';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+
+AWS.config.update({
+  accessKeyId:process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY,
+  region:process.env.AWS_REGION,
+});
+
+const s3 = new AWS.S3();
 
 export const createService = async (req, res) => {
+  const { title, Content } = req.body;
 
-  const { title, Content, image } = req.body;
-  
   try {
-  
-    const result = await cloudinary.uploader.upload(req.file.path, {
-      folder: "services",
-    });
+    // Upload image to S3
+    const imageUploadParams = {
+      Bucket: 'cyclic-expensive-moth-jodhpurs-sa-east-1', // Replace with your S3 bucket name
+      Key: `services/${Date.now()}_${req.file.originalname}`,
+      Body: req.file.buffer,
+      ContentType: req.file.mimetype,
+    };
 
+    const imageUploadResult = await s3.upload(imageUploadParams).promise();
 
+    // Create a new service entry
     const newService = new ServiceModel({
       title,
       Content,
       image: {
-        public_id: result.public_id,
-        url: result.secure_url
-      } 
+        url: imageUploadResult.Location,
+      },
     });
 
+    // Save the service entry to the database
     const savedService = await newService.save();
+
     console.log(savedService);
 
     res.json({ Response: true, message: 'Added Successfully' });
     console.log('Service added successfully');
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error(error);
+    res.status(500).json({ Response: false, message: 'Internal Server Error' });
   }
 };
 
