@@ -11,16 +11,14 @@ function Adminblog() {
   const [details, setDetails] = useState({
     title: '',
     content: '',
-    publishdate: '',
-    publishTime: '',
+    publishdate:'',
+    publishTime:'',
     author: '',
     authorImage: null,
     image: null,
   });
 
   const { title, content, publishdate,  image , author, authorImage} = details;
-
-  // Create a ref to store the Quill instance
   
 
   const handleChange = (event) => {
@@ -51,12 +49,11 @@ function Adminblog() {
       formdata.append('title', title);
       formdata.append('content', content);
 
-      formdata.append('publishDate', publishdate);
+      formdata.append('publishDate', publishdate); 
       formdata.append('author', author); // Add author field
       formdata.append('authorImage', authorImage); // Add author image field
 
       formdata.append('image', image);
-
       
 
       await addBlog(formdata);

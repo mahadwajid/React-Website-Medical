@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { getSignup } from '../Service/API';
 import '../Assessts/Login.css';
+import axios from 'axios';
 
 function Login() {
     const navigate = useNavigate(); // Initialize useNavigate
@@ -17,8 +18,10 @@ function Login() {
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
-            const token = await getSignup(details);
+            const response = await getSignup(details);
+            const token = response.data.token;
             localStorage.setItem('adminToken', token);
+            console.log(localStorage.getItem('adminToken'));
             localStorage.setItem('userEmail', details.email);
 
             navigate('/Admin');

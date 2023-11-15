@@ -1,10 +1,23 @@
 import axios from 'axios';
 
-const url = "https://expensive-moth-jodhpurs.cyclic.app"; 
+const url = "https://diabaticdata.onrender.com"; 
+// const url = "https://expensive-moth-jodhpurs.cyclic.app"; 
 // const url = "http://localhost:5000"; 
 export const addBlog = async (formdata) => {
-    return await axios.post(`${url}/Admin/Adminblog`, formdata);
-  
+  try {
+    const response = await axios.post(`${url}/Admin/Adminblog`, formdata, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    console.log(response.data); // Log the response from the server
+    return response.data;
+  } catch (error) {
+    console.error('Error adding blog:', error);
+    throw error; // Rethrow the error to be caught by the calling component
+  }
 };
 
 export const getBlogs = async () => {
@@ -31,25 +44,16 @@ export const deletepatientbyid = async(id) =>{
     return await axios.delete(`${url}/Admin/ShowPatientdata/${id}`);
 }
 
+
 export const getSignup = async (details) => {
     try {
-      const response = await axios.post(`${url}/Login`, details);
-  
-      if (response.status === 200) {
-        const { token } = response.data; // Assuming the token is returned in the response
-  
-        // You can handle token storage here, e.g., storing it in localStorage
-        localStorage.setItem('adminToken', token);
-  
-        return token;
-      } else {
-        throw new Error('Login failed');
-      }
+        return await axios.post(`${url}/Login`, details);
     } catch (error) {
-      console.error('Login failed', error);
-      throw error; // Rethrow the error for the caller to handle
+        console.error('Login failed', error);
+        throw error; // Rethrow the error for the caller to handle
     }
-  };
+};
+
 
   export const addService = async (formdata) =>{
     console.log(formdata);

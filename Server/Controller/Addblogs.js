@@ -2,7 +2,7 @@ import BlogModel from '../Model/Addblog.js';
 import cloudinary from '../cloudinaryConfig.js';
 
 export const createBlog = async (req, res) => {
-  const { title, content, publishDate, author, authorImage, image } = req.body;
+  const { title, content, publishDate, author } = req.body;
 
   try {
     const imageUploadResult = await cloudinary.uploader.upload(req.files['image'][0].path, {
@@ -31,8 +31,8 @@ export const createBlog = async (req, res) => {
     const savedProduct = await newBlog.save();
     console.log(savedProduct);
 
-    res.json({ Response: true, message: 'Added Successfully ' });
-    console.log("Product added successfully");
+    res.json({ Response: true, message: 'Added Successfully' });
+    console.log("Blog added successfully");
   } catch (error) {
     console.log(error);
     res.status(500).json({ Response: false, message: 'Internal Server Error' });
