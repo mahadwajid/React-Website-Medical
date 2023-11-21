@@ -8,7 +8,7 @@ export const createService = async (req, res) => {
   
   try {
   
-    const result = await cloudinary.uploader.upload(req.file.path, {
+    const result = await cloudinary.uploader.upload(image, {
       folder: "services",
     });
 
