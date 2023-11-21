@@ -2,6 +2,7 @@
   "name": "diabatics",
   "version": "0.1.0",
   "private": true,
+  "proxy":"http://localhost:5000",
   "dependencies": {
     "@artsy/fresnel": "^6.2.1",
     "@fortawesome/fontawesome-free": "^6.4.2",
