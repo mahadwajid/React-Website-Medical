@@ -1,44 +1,32 @@
-import fs from 'fs/promises';
 import ServiceModel from '../Model/AddService.js';
 import cloudinary from '../cloudinaryConfig.js';
+import fs from 'fs/promises';
 
 export const createService = async (req, res) => {
+
   const { title, Content, image } = req.body;
-
+  
   try {
-    // Assuming image is a base64 encoded string representing the image data
-    const base64Image = image.replace(/^data:image\/\w+;base64,/, '');
-    const buffer = Buffer.from(base64Image, 'base64');
-
-    // Write the image data to a file in a temporary directory
-    const tempImagePath = './images/'; // Change this to your desired location
-    await fs.writeFile(tempImagePath, buffer);
-
-    // Upload the image to Cloudinary
-    const result = await cloudinary.uploader.upload(tempImagePath, {
-      folder: 'services',
+  
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: "services",
     });
 
-    // Create a new service using the Cloudinary URL
+
     const newService = new ServiceModel({
       title,
       Content,
       image: {
         public_id: result.public_id,
-        url: result.secure_url,
-      },
+        url: result.secure_url
+      } 
     });
 
-    // Save the service to the database
     const savedService = await newService.save();
     console.log(savedService);
 
-    // Respond with success message
     res.json({ Response: true, message: 'Added Successfully' });
     console.log('Service added successfully');
-
-    // Remove the temporary image file
-    await fs.unlink(tempImagePath);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Internal server error' });
