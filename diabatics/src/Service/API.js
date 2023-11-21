@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const url = "https://diabaticdata.onrender.com"; 
-// const url = "https://expensive-moth-jodhpurs.cyclic.app";
+// const url = "https://diabaticdata.onrender.com"; 
+const url = "https://expensive-moth-jodhpurs.cyclic.app";
 // const url = "http://localhost:5000";
 export const addBlog = async (formdata) => {
   try {
