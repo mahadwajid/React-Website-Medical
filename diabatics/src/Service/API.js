@@ -3,6 +3,7 @@ import axios from 'axios';
 // const url = "https://diabaticdata.onrender.com"; 
 // const url = "https://odd-tan-monkey-wear.cyclic.app/";
 const url = "https://diabatic-clinic-af3e4ac4fb81.herokuapp.com";
+// const url = "http://localhost:5000";
 export const addBlog = async (formdata) => {
   try {
     const response = await axios.post(`${url}/Admin/Adminblog`, formdata, {
@@ -55,10 +56,27 @@ export const getSignup = async (details) => {
 };
 
 
-  export const addService = async (formdata) =>{
-    console.log(formdata);
-    return await axios.post(`${url}/Admin/AddService`,formdata);
-  }
+  // export const addService = async (formdata) =>{
+  //   console.log(formdata);
+  //   return await axios.post(`${url}/Admin/AddService`,formdata);
+  // }
+
+  export const addService = async (formdata) => {
+    try {
+      const response = await axios.post(`${url}/Admin/AddService`, formdata, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+  
+      console.log(response.data); // Log the response from the server
+      return response.data;
+    } catch (error) {
+      console.error('Error adding blog:', error);
+      throw error; // Rethrow the error to be caught by the calling component
+    }
+  };
 
   export const getService = async () => {
     return await axios.get(`${url}/Admin/ShowService`);

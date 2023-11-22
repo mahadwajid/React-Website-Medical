@@ -66,11 +66,6 @@ function AddService() {
                             />
                         </div>
 
-                        {/* React Quill for Content */}
-                        {/* <div>
-                            <label htmlFor="Content">Content</label>
-                            <ReactQuill value={Content} onChange={handleContentChange} />
-                        </div> */}
 
                         <div>
                             <label htmlFor="Content">Content</label>

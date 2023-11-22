@@ -75,7 +75,7 @@ function ShowService() {
           {showService.map((details) => (
             <tr key={details._id}>
               <td>
-                <img style={{ width: '4rem', height: '5rem' }} src={details.image.url} alt="" />
+                <img style={{ width: '4rem', height: '5rem' }} src={`https://diabatic-clinic-af3e4ac4fb81.herokuapp.com/${details.image}`} alt="" />
               </td>
               <td>{details.title}</td>
               <td>

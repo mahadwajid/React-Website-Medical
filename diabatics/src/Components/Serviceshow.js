@@ -27,7 +27,7 @@ function ServiceShow() {
         {Serviceid.map(details =>
                        <div key={details._id} className="Blog-container">
                 <div className="Blog-img">
-                    <img src={details.image.url} alt="..." className="Full-width-img" />
+                    <img src={`https://diabatic-clinic-af3e4ac4fb81.herokuapp.com/${details.image}`} alt="..." className="Full-width-img" />
                 </div>
 
                 <div className="Blog-Content">
