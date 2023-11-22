@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // const url = "https://diabaticdata.onrender.com"; 
 // const url = "https://odd-tan-monkey-wear.cyclic.app/";
-const url = "https://diabatic-clinic-af3e4ac4fb81.herokuapp.com/";
+const url = "https://diabatic-clinic-af3e4ac4fb81.herokuapp.com";
 export const addBlog = async (formdata) => {
   try {
     const response = await axios.post(`${url}/Admin/Adminblog`, formdata, {

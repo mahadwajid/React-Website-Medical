@@ -1,6 +1,5 @@
 import ServiceModel from '../Model/AddService.js';
 import cloudinary from '../cloudinaryConfig.js';
-import fs from 'fs/promises';
 
 export const createService = async (req, res) => {
 
