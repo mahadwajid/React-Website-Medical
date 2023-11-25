@@ -63,7 +63,8 @@ export const getSignup = async (details) => {
 
   export const addService = async (formdata) => {
     try {
-      const response = await axios.post(`${url}/Admin/AddService`, formdata, {
+      console.log(formdata);
+       const response = await axios.post(`${url}/Admin/AddService`, formdata, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           'Content-Type': 'multipart/form-data',
