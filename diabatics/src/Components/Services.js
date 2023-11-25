@@ -47,7 +47,7 @@ function Services() {
         {Service.map((details) => (
           <div className="card-1" key={details._id}>
             <div class="icon-wrapper">
-              <img src={`https://diabatic-clinic-af3e4ac4fb81.herokuapp.com/${details.image}`} alt="Icon" />
+              <img src={details.image.url} alt="Icon" />
             </div>
             <div className="blog-content truncate">
               <h3>{details.title}</h3>

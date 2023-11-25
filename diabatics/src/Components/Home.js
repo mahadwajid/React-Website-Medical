@@ -168,7 +168,7 @@ function Home() {
           
           <div className="card-1" key={details._id}>
             <div class="icon-wrapper">
-              <img src={`https://diabatic-clinic-af3e4ac4fb81.herokuapp.com/${details.image}`} alt="Icon" loading="eager"  />
+              <img src={details.image.url} alt="Icon" loading="eager"  />
             </div>
             <div className="blog-content truncate">
               <h3>{details.title}</h3>
