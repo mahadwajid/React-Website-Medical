@@ -11,8 +11,8 @@ function Adminblog() {
   const [details, setDetails] = useState({
     title: '',
     content: '',
-    publishdate:'',
-    publishTime:'',
+    // publishdate:'',
+    // publishTime:'',
     author: '',
     authorImage: null,
     image: null,
@@ -49,7 +49,7 @@ function Adminblog() {
       formdata.append('title', title);
       formdata.append('content', content);
 
-      formdata.append('publishDate', publishdate); 
+      // formdata.append('publishDate', publishdate); 
       formdata.append('author', author); // Add author field
       formdata.append('authorImage', authorImage); // Add author image field
 
@@ -117,7 +117,7 @@ function Adminblog() {
 </div>
 
 
-            <div>
+            {/* <div>
               <label htmlFor="publishdate">Publish Date</label>
               <input
                 name="publishdate"
@@ -127,7 +127,7 @@ function Adminblog() {
                 onChange={handleChange}
                 required
               />
-            </div>
+            </div> */}
             <div>
               <label htmlFor="images">Images:</label>
               <input
