@@ -69,7 +69,7 @@ function Showblog() {
               <td>
                 <img
                   style={{ width: '4rem', height: '5rem' }}
-                  src={details.image}
+                  src={details.image.url}
                   alt=""
                 />
               </td>
@@ -82,7 +82,7 @@ function Showblog() {
               <td>
                 <img
                   style={{ width: '4rem', height: '5rem' }}
-                  src={details.authorImage}
+                  src={details.authorImage.url}
                   alt=""
                 />
               </td>
